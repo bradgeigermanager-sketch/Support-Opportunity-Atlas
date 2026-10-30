@@ -16,6 +16,7 @@ The v1.0 overview is retained as the historical conceptual baseline. The v2.0 do
 - `opportunity_atlas_1point0_overview.txt` — preserved original v1.0 concept.
 - `docs/architecture/` — system boundaries and architecture.
 - `docs/ontology/` — entities, concepts, and relationships.
+- `docs/catalog/` — opportunity type taxonomy and reusable listing patterns.
 - `docs/governance/` — need/opportunity states and publication safeguards.
 - `docs/procedures/` — discovery and validation procedure.
 - `docs/matching/` — capability-to-opportunity matching model.
@@ -23,7 +24,7 @@ The v1.0 overview is retained as the historical conceptual baseline. The v2.0 do
 - `docs/quality/` — quality dimensions, decision safeguards, review, and correction procedures.
 - `docs/impact/` — impact measurement and attribution.
 - `docs/data-model/` — relational and JSONB persistence model.
-- `schemas/` — machine-readable JSON Schema contracts, including quality assessments.
+- `schemas/` — machine-readable JSON Schema contracts, including opportunity type terms and quality assessments.
 - `examples/` — clearly labelled illustrative records.
 - `site/` — site-specific supporting assets.
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow.
