@@ -1,0 +1,268 @@
+For mobile, traditional pagination like:
+
+← Prev | 1 2 3 4 5 6 7 8 9 10 | Next →
+
+
+quickly becomes unusable.
+
+A better mobile-friendly Opportunity Atlas should use adaptive pagination.
+
+Option 1: Compact Mobile Pagination (Recommended)
+
+Desktop:
+
+← Prev | 1 2 3 4 5 6 7 | Next →
+
+
+Mobile:
+
+← Prev
+
+Page 3 of 12
+
+Next →
+
+HTML
+<div class="pagination-container">
+
+    <button id="prevPage">
+        ← Previous
+    </button>
+
+    <span id="pageInfo">
+        Page 1 of 12
+    </span>
+
+    <button id="nextPage">
+        Next →
+    </button>
+
+</div>
+
+CSS
+.pagination-container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:24px;
+
+}
+
+@media (max-width:768px){
+
+    .pagination-container{
+
+        flex-direction:column;
+
+    }
+
+    .pagination-container button{
+
+        width:100%;
+
+        max-width:300px;
+
+    }
+
+}
+
+Option 2: Mobile "Load More"
+
+Most modern mobile apps use this.
+
+Page 1
+9 Opportunities
+
+[ Cards ]
+[ Cards ]
+[ Cards ]
+
+Load More
+
+HTML
+<button id="loadMoreBtn">
+
+    Load More Opportunities
+
+</button>
+
+JavaScript
+let visibleCount = 9;
+
+function loadMore(){
+
+    visibleCount += 9;
+
+    renderPage();
+
+}
+
+document
+.getElementById("loadMoreBtn")
+.addEventListener(
+    "click",
+    loadMore
+);
+
+
+This feels much more natural on phones.
+
+Option 3: Infinite Scroll
+
+Users never see pagination.
+
+As they scroll:
+
+Cards
+Cards
+Cards
+
+↓ scroll
+
+More cards loaded
+
+↓ scroll
+
+More cards loaded
+
+JavaScript
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const bottom =
+            window.innerHeight +
+            window.scrollY >=
+            document.body.offsetHeight - 300;
+
+        if(bottom){
+
+            loadMore();
+
+        }
+
+    }
+);
+
+
+This works well if you expect hundreds of opportunities.
+
+Option 4: Smart Page Numbers
+
+If you want numbered pages, compress them.
+
+Instead of:
+
+1 2 3 4 5 6 7 8 9 10 11 12
+
+
+Show:
+
+1 2 3 ... 12
+
+
+Or:
+
+1 ... 5 6 7 ... 12
+
+Example
+
+Current page:
+
+Page 6
+
+← Prev
+
+1 ... 5 6 7 ... 12
+
+Next →
+
+Option 5: Sticky Mobile Navigation
+
+Keep pagination visible while scrolling.
+
+CSS
+@media (max-width:768px){
+
+    .pagination-container{
+
+        position:sticky;
+
+        bottom:0;
+
+        background:white;
+
+        padding:12px;
+
+        border-top:1px solid #ddd;
+
+        z-index:100;
+
+    }
+
+}
+
+
+Result:
+
+Cards...
+Cards...
+Cards...
+
+─────────────────
+← Prev   Next →
+─────────────────
+
+
+always visible.
+
+Opportunity Atlas Recommendation
+
+For the Atlas I'd actually use:
+
+Desktop
+← Prev
+
+1 2 3 4 5
+
+Next →
+
+Tablet
+← Prev
+
+Page 3 of 12
+
+Next →
+
+Mobile
+Load More
+
+
+or
+
+Infinite Scroll
+
+
+because users exploring opportunities behave more like they are browsing a social feed than navigating a directory.
+
+Best Hybrid Design
+Desktop:
+✅ Numbered Pages
+
+Tablet:
+✅ Compact Pagination
+
+Mobile:
+✅ Load More Button
+
+Large Datasets:
+✅ Infinite Scroll
+
+
+This gives the Opportunity Atlas a modern app-like experience while still supporting efficient navigation for power users on larger screens.
