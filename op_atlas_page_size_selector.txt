@@ -1,0 +1,225 @@
+A mobile page-size selector is a great addition because phone users often prefer smaller batches (e.g., 6 cards), while tablet users may want 12-18 and desktop users may want 24+.
+
+1. Add the Page Size Selector
+
+Place it near your results count:
+
+<div class="results-toolbar">
+
+    <div id="resultsCount"></div>
+
+    <div class="page-size-control">
+
+        <label for="pageSize">
+            Per Page
+        </label>
+
+        <select id="pageSize">
+
+            <option value="6">6</option>
+
+            <option value="9" selected>
+                9
+            </option>
+
+            <option value="12">12</option>
+
+            <option value="24">24</option>
+
+            <option value="48">48</option>
+
+        </select>
+
+    </div>
+
+</div>
+
+2. Responsive Toolbar Styling
+.results-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+.page-size-control{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.page-size-control select{
+
+    width:auto;
+
+    min-width:90px;
+
+}
+
+@media (max-width:768px){
+
+    .results-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .page-size-control{
+
+        width:100%;
+
+    }
+
+    .page-size-control select{
+
+        flex:1;
+
+        width:100%;
+
+    }
+
+}
+
+3. Replace Fixed Page Size
+
+Current:
+
+const cardsPerPage = 9;
+
+
+Replace with:
+
+let cardsPerPage =
+    Number(
+        document.getElementById(
+            "pageSize"
+        ).value
+    );
+
+4. React to Page Size Changes
+
+Add:
+
+document
+.getElementById("pageSize")
+.addEventListener(
+    "change",
+    function(){
+
+        cardsPerPage =
+            Number(this.value);
+
+        currentPage = 1;
+
+        renderPage();
+
+    }
+);
+
+5. Auto-Select Based on Device Size
+
+You can make the Atlas intelligently choose a default:
+
+function determineDefaultPageSize(){
+
+    if(window.innerWidth < 640){
+
+        return 6;
+
+    }
+
+    if(window.innerWidth < 1024){
+
+        return 12;
+
+    }
+
+    return 24;
+
+}
+
+
+Initialize:
+
+cardsPerPage =
+    determineDefaultPageSize();
+
+document.getElementById(
+    "pageSize"
+).value = cardsPerPage;
+
+6. Allow an "All" Option
+
+Useful for power users.
+
+<option value="999999">
+    All
+</option>
+
+
+Then in renderPage():
+
+if(cardsPerPage >= filteredCards.length){
+
+    filteredCards.forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+    document.getElementById(
+        "pageInfo"
+    ).textContent =
+        `Showing all ${filteredCards.length}`;
+
+    return;
+}
+
+7. Mobile-Friendly Sheet Style
+
+For a more app-like mobile UI:
+
+@media (max-width:768px){
+
+    .page-size-control{
+
+        background:white;
+
+        padding:12px;
+
+        border-radius:12px;
+
+        box-shadow:
+        0 2px 8px
+        rgba(0,0,0,.08);
+
+    }
+
+}
+
+Recommended Defaults
+
+For the Opportunity Atlas:
+
+Mobile      → 6 per page
+Tablet      → 12 per page
+Desktop     → 24 per page
+Large Screen→ 48 per page
+
+
+This keeps scrolling manageable while still taking advantage of larger screens. Combined with the responsive grid and adaptive pagination, the Atlas will feel much closer to a modern search platform like LinkedIn, GitHub, or Google Jobs.
