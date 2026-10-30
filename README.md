@@ -9,7 +9,7 @@ A structured, searchable map of needs, opportunities, skills, resources, organiz
 
 The Atlas evolves the original [Opportunity Atlas v1.0 overview](opportunity_atlas_1point0_overview.txt) into a governed, evidence-aware system for discovering needs and matching contributions to useful action.
 
-The v1.0 overview is retained as the historical conceptual baseline. The v2.0 documents add explicit data structures, lifecycle states, validation, matching, provenance, and impact measurement.
+The v1.0 overview is retained as the historical conceptual baseline. The v2.0 documents add explicit data structures, lifecycle states, validation, matching, provenance, impact measurement, and quality safeguards.
 
 ## Repository map
 
@@ -20,9 +20,10 @@ The v1.0 overview is retained as the historical conceptual baseline. The v2.0 do
 - `docs/procedures/` — discovery and validation procedure.
 - `docs/matching/` — capability-to-opportunity matching model.
 - `docs/evidence/` — provenance, verification, confidence, and evidence.
+- `docs/quality/` — quality dimensions, decision safeguards, review, and correction procedures.
 - `docs/impact/` — impact measurement and attribution.
 - `docs/data-model/` — relational and JSONB persistence model.
-- `schemas/` — machine-readable JSON Schema contracts.
+- `schemas/` — machine-readable JSON Schema contracts, including quality assessments.
 - `examples/` — clearly labelled illustrative records.
 - `site/` — site-specific supporting assets.
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow.
@@ -41,6 +42,7 @@ This is a navigational model, not an assertion that every relationship is linear
 - A **verified need** has supporting evidence assessed under a documented method.
 - An **open opportunity** has an identified responsible contact or mechanism and has been checked for current status.
 - A **potential match** is a compatibility estimate, not a guarantee of suitability or impact.
+- A **quality assessment** evaluates defined dimensions and permitted uses; it is not itself proof that a record is true.
 
 The site currently contains illustrative interface examples only. They are not real solicitations, endorsements, or verified local listings.
 
@@ -50,10 +52,12 @@ The site currently contains illustrative interface examples only. They are not r
 2. Separate observation, assertion, inference, recommendation, and measured result.
 3. Record provenance and timestamps for consequential claims.
 4. Never treat missing data as a negative finding.
-5. Make uncertainty and qualification visible.
-6. Avoid publishing personal or sensitive information without a valid basis.
-7. Measure outputs and outcomes separately; do not overstate attribution.
-8. Keep records machine-readable and human-reviewable.
+5. Make uncertainty, conflicts, and qualification visible.
+6. Do not turn a match score into an authoritative decision.
+7. Preserve corrections and re-evaluate dependent recommendations.
+8. Avoid publishing personal or sensitive information without a valid basis.
+9. Measure outputs and outcomes separately; do not overstate attribution.
+10. Keep records machine-readable and human-reviewable.
 
 ## GitHub Pages
 
