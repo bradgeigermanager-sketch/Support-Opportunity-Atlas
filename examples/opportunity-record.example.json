@@ -1,0 +1,67 @@
+{
+  "record_id": "6a3d5b8e-4b0d-4f6e-8f8c-2a3c0c1b9e10",
+  "record_type": "opportunity",
+  "schema_version": "1.0.0",
+  "version": 1,
+  "supersedes_version": null,
+  "title": "Illustrative Community Mathematics Resource Review",
+  "summary": "A hypothetical example showing how an opportunity record can describe a bounded contribution. This is not a real solicitation.",
+  "cause_ids": ["cause.education"],
+  "problem_ids": ["problem.numeracy"],
+  "need_references": [
+    {
+      "need_id": "need.example.numeracy-materials",
+      "evidence_state": "candidate",
+      "qualification": "Illustrative placeholder only; no external evidence has been collected."
+    }
+  ],
+  "operational_status": "draft",
+  "actions": [
+    {
+      "action_type": "curriculum_review",
+      "description": "Review sample mathematics learning materials for clarity and accessibility.",
+      "required_skill_ids": ["skill.mathematics"],
+      "preferred_skill_ids": ["skill.educational_writing"],
+      "required_qualification_ids": [],
+      "resource_requirements": [
+        {"resource_type": "time", "quantity": 2, "unit": "hours"}
+      ]
+    }
+  ],
+  "organization_references": [],
+  "location": {
+    "place_id": null,
+    "label": "Not specified",
+    "remote_allowed": true,
+    "jurisdiction_id": null
+  },
+  "time_commitment": {
+    "minimum_hours": 2,
+    "maximum_hours": 2,
+    "period": "once",
+    "schedule_description": "Hypothetical two-hour review session."
+  },
+  "valid_from": null,
+  "valid_until": null,
+  "last_confirmed_at": null,
+  "review_due_at": null,
+  "provenance": [
+    {
+      "source_id": "source.example.synthetic",
+      "source_uri": null,
+      "publisher": "Synthetic example authored for schema demonstration",
+      "published_at": null,
+      "accessed_at": "2026-10-29T00:00:00Z",
+      "locator": "Entire example record"
+    }
+  ],
+  "evidence_assessment": {
+    "state": "unassessed",
+    "method": "No real-world validation; synthetic illustration only.",
+    "rationale": "Demonstrates the difference between a candidate need and an active published opportunity.",
+    "reviewed_at": null
+  },
+  "created_at": "2026-10-29T00:00:00Z",
+  "updated_at": "2026-10-29T00:00:00Z",
+  "created_by": "atlas-example"
+}
