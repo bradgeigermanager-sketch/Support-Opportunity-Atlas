@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bradgeigermanager-sketch.github.io/Support-Opportunity-Atlas/schemas/opportunity-source.schema.json",
+  "title": "Opportunity Source Registry Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "source_type",
+    "source_uri",
+    "collection_method",
+    "health_status",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "official_government",
+        "official_publisher",
+        "procurement_portal",
+        "research_registry",
+        "public_api",
+        "public_feed",
+        "partner_submission",
+        "direct_confirmation",
+        "secondary_directory",
+        "other"
+      ]
+    },
+    "source_uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "publisher_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claimed_jurisdiction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "topical_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "collection_method": {
+      "enum": [
+        "manual",
+        "api",
+        "feed",
+        "permitted_crawler",
+        "partner_submission",
+        "direct_confirmation"
+      ]
+    },
+    "reuse_constraints": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_update_interval_hours": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "last_checked_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "last_successful_retrieval_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "next_check_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "parser_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reliability_assessment": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "unassessed",
+            "low",
+            "moderate",
+            "high",
+            "contested",
+            null
+          ]
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assessed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "correction_route": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "health_status": {
+      "enum": [
+        "proposed",
+        "active",
+        "degraded",
+        "blocked",
+        "retired"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
