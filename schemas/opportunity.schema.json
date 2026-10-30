@@ -5,102 +5,479 @@
   "description": "Versioned opportunity record. Evidence status and operational status are intentionally separate.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["record_id", "record_type", "schema_version", "version", "title", "summary", "operational_status", "need_references", "actions", "provenance", "created_at", "updated_at"],
+  "required": [
+    "record_id",
+    "record_type",
+    "schema_version",
+    "version",
+    "title",
+    "summary",
+    "operational_status",
+    "need_references",
+    "actions",
+    "provenance",
+    "created_at",
+    "updated_at",
+    "primary_type_id"
+  ],
   "properties": {
-    "record_id": {"type": "string", "format": "uuid"},
-    "record_type": {"const": "opportunity"},
-    "schema_version": {"type": "string"},
-    "version": {"type": "integer", "minimum": 1},
-    "supersedes_version": {"type": ["integer", "null"], "minimum": 1},
-    "title": {"type": "string", "minLength": 3, "maxLength": 180},
-    "summary": {"type": "string", "maxLength": 2000},
-    "cause_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "problem_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "record_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "record_type": {
+      "const": "opportunity"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_version": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 180
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "cause_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "problem_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "need_references": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["need_id", "evidence_state"],
+        "required": [
+          "need_id",
+          "evidence_state"
+        ],
         "properties": {
-          "need_id": {"type": "string"},
-          "evidence_state": {"enum": ["candidate", "reported", "under_review", "corroborated", "verified", "disputed", "stale", "closed"]},
-          "qualification": {"type": "string"}
+          "need_id": {
+            "type": "string"
+          },
+          "evidence_state": {
+            "enum": [
+              "candidate",
+              "reported",
+              "under_review",
+              "corroborated",
+              "verified",
+              "disputed",
+              "stale",
+              "closed"
+            ]
+          },
+          "qualification": {
+            "type": "string"
+          }
         }
       }
     },
-    "operational_status": {"enum": ["draft", "submitted", "under_review", "published", "paused", "filled", "completed", "expired", "withdrawn", "rejected"]},
+    "operational_status": {
+      "enum": [
+        "draft",
+        "submitted",
+        "under_review",
+        "published",
+        "paused",
+        "filled",
+        "completed",
+        "expired",
+        "withdrawn",
+        "rejected"
+      ]
+    },
     "actions": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["action_type", "description"],
+        "required": [
+          "action_type",
+          "description"
+        ],
         "properties": {
-          "action_type": {"type": "string"},
-          "description": {"type": "string"},
-          "required_skill_ids": {"type": "array", "items": {"type": "string"}},
-          "preferred_skill_ids": {"type": "array", "items": {"type": "string"}},
-          "required_qualification_ids": {"type": "array", "items": {"type": "string"}},
-          "resource_requirements": {"type": "array", "items": {"type": "object"}}
+          "action_type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "required_skill_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "preferred_skill_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_qualification_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resource_requirements": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
         }
       }
     },
-    "organization_references": {"type": "array", "items": {"type": "string"}},
+    "organization_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "location": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
-        "place_id": {"type": ["string", "null"]},
-        "label": {"type": ["string", "null"]},
-        "remote_allowed": {"type": "boolean"},
-        "jurisdiction_id": {"type": ["string", "null"]}
+        "place_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "remote_allowed": {
+          "type": "boolean"
+        },
+        "jurisdiction_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "additionalProperties": false
     },
     "time_commitment": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
-        "minimum_hours": {"type": ["number", "null"], "minimum": 0},
-        "maximum_hours": {"type": ["number", "null"], "minimum": 0},
-        "period": {"enum": ["once", "daily", "weekly", "monthly", "project", "ongoing", null]},
-        "schedule_description": {"type": ["string", "null"]}
+        "minimum_hours": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "maximum_hours": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "period": {
+          "enum": [
+            "once",
+            "daily",
+            "weekly",
+            "monthly",
+            "project",
+            "ongoing",
+            null
+          ]
+        },
+        "schedule_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "additionalProperties": false
     },
-    "valid_from": {"type": ["string", "null"], "format": "date-time"},
-    "valid_until": {"type": ["string", "null"], "format": "date-time"},
-    "last_confirmed_at": {"type": ["string", "null"], "format": "date-time"},
-    "review_due_at": {"type": ["string", "null"], "format": "date-time"},
+    "valid_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "last_confirmed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "review_due_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
     "provenance": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["source_id", "accessed_at"],
+        "required": [
+          "source_id",
+          "accessed_at"
+        ],
         "properties": {
-          "source_id": {"type": "string"},
-          "source_uri": {"type": ["string", "null"], "format": "uri"},
-          "publisher": {"type": ["string", "null"]},
-          "published_at": {"type": ["string", "null"], "format": "date-time"},
-          "accessed_at": {"type": "string", "format": "date-time"},
-          "locator": {"type": ["string", "null"]}
+          "source_id": {
+            "type": "string"
+          },
+          "source_uri": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "publisher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "published_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "accessed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       }
     },
     "evidence_assessment": {
-      "type": ["object", "null"],
+      "type": [
+        "object",
+        "null"
+      ],
       "properties": {
-        "state": {"enum": ["unassessed", "low", "moderate", "high", "contested", null]},
-        "method": {"type": ["string", "null]},
-        "rationale": {"type": ["string", "null]},
-        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+        "state": {
+          "enum": [
+            "unassessed",
+            "low",
+            "moderate",
+            "high",
+            "contested",
+            null
+          ]
+        },
+        "method": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rationale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
       },
       "additionalProperties": false
     },
-    "created_at": {"type": "string", "format": "date-time"},
-    "updated_at": {"type": "string", "format": "date-time"},
-    "created_by": {"type": ["string", "null"]}
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "primary_type_id": {
+      "type": "string",
+      "pattern": "^opp\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "secondary_type_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^opp\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+      },
+      "uniqueItems": true
+    },
+    "listing_pattern_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^listing\\.[a-z0-9_]+$"
+    },
+    "domain_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^domain\\.[a-z0-9_]+$"
+      },
+      "uniqueItems": true
+    },
+    "participation_relationship": {
+      "enum": [
+        "volunteer",
+        "employee",
+        "contractor",
+        "grantee",
+        "donor",
+        "learner",
+        "partner",
+        "member",
+        "public_participant",
+        "service_recipient",
+        "unknown",
+        null
+      ]
+    },
+    "delivery_mode": {
+      "enum": [
+        "in_person",
+        "remote",
+        "hybrid",
+        "mobile",
+        "place_based",
+        "unknown",
+        null
+      ]
+    },
+    "availability": {
+      "enum": [
+        "open",
+        "waitlist",
+        "limited_capacity",
+        "not_accepting",
+        "unknown",
+        "not_applicable",
+        null
+      ]
+    },
+    "maturity": {
+      "enum": [
+        "idea",
+        "proposed",
+        "seeking_partners",
+        "accepting_interest",
+        "accepting_applications",
+        "active_delivery",
+        "recurring",
+        "concluded",
+        "unknown",
+        null
+      ]
+    },
+    "compensation": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "paid",
+            "unpaid",
+            "stipend",
+            "fee",
+            "in_kind",
+            "reimbursed",
+            "not_applicable",
+            "unknown",
+            null
+          ]
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
   }
 }
