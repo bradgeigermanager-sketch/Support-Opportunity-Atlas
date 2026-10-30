@@ -1,0 +1,55 @@
+{
+  "record_id": "8b4a7b2c-0c6e-4b91-9f10-5b4c8a7d2e31",
+  "record_type": "opportunity_listing",
+  "schema_version": "1.0.0",
+  "version": 1,
+  "supersedes_version": null,
+  "title": "Illustrative Community Stream Monitoring Volunteer Call",
+  "summary": "Synthetic example showing how a registry listing connects a specific call with its source observation, type, status, and review dates. It is not a real or currently open opportunity.",
+  "primary_type_id": "opp.env.monitoring",
+  "secondary_type_ids": [
+    "opp.volunteer.community_science"
+  ],
+  "domain_ids": [
+    "domain.environment",
+    "domain.science"
+  ],
+  "action_ids": [
+    "action.collect",
+    "action.monitor"
+  ],
+  "listing_pattern_id": "listing.community_project",
+  "publisher_id": "publisher.synthetic-example",
+  "source_observations": [
+    {
+      "source_id": "source.synthetic-example",
+      "source_uri": "https://example.org/illustrative-stream-monitoring",
+      "observed_at": "2026-10-29T00:00:00Z",
+      "locator": "Synthetic example page",
+      "content_fingerprint": null,
+      "extraction_method": "manual_synthetic_example",
+      "asserted_status": "Illustrative only"
+    }
+  ],
+  "workflow_status": "candidate",
+  "operational_status": "draft",
+  "availability": "unknown",
+  "verification_state": "unassessed",
+  "participation_relationship": "volunteer",
+  "delivery_mode": "in_person",
+  "compensation_status": "unknown",
+  "location": {
+    "label": "Not specified",
+    "jurisdiction_id": null,
+    "remote_allowed": false
+  },
+  "valid_from": null,
+  "valid_until": null,
+  "application_deadline": null,
+  "last_confirmed_at": null,
+  "review_due_at": null,
+  "duplicate_candidates": [],
+  "quality_assessment_ref": null,
+  "created_at": "2026-10-29T00:00:00Z",
+  "updated_at": "2026-10-29T00:00:00Z"
+}
