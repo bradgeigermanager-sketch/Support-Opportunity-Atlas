@@ -1,0 +1,316 @@
+For the Opportunity Atlas, I'd implement responsive numbered pagination that adapts to screen size:
+
+🖥️ Desktop: 1 2 3 4 5 ... 20
+📱 Mobile: 1 ... 4 5 6 ... 20
+Very small screens: only the current page plus neighbors.
+HTML
+<div class="pagination-container">
+
+    <button id="prevPage">
+        ← Previous
+    </button>
+
+    <div id="pageNumbers"></div>
+
+    <button id="nextPage">
+        Next →
+    </button>
+
+</div>
+
+CSS
+.pagination-container{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:24px;
+
+}
+
+#pageNumbers{
+
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:center;
+
+}
+
+.page-btn{
+
+    min-width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#e5e7eb;
+    cursor:pointer;
+
+}
+
+.page-btn:hover{
+
+    background:#d1d5db;
+
+}
+
+.page-btn.active{
+
+    background:#1f4e79;
+    color:white;
+
+}
+
+.page-btn.ellipsis{
+
+    background:transparent;
+    cursor:default;
+
+}
+
+@media (max-width:768px){
+
+    .pagination-container{
+
+        gap:8px;
+
+    }
+
+    .page-btn{
+
+        min-width:36px;
+        height:36px;
+
+    }
+
+}
+
+Smart Responsive Pagination Logic
+
+Replace your existing page-number code with:
+
+function buildPageNumbers(){
+
+    const container =
+        document.getElementById(
+            "pageNumbers"
+        );
+
+    container.innerHTML = "";
+
+    const totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                filteredCards.length /
+                cardsPerPage
+            )
+        );
+
+    const mobile =
+        window.innerWidth < 768;
+
+    let pages = [];
+
+    if(totalPages <= 7){
+
+        for(let i=1;i<=totalPages;i++){
+
+            pages.push(i);
+
+        }
+
+    }else{
+
+        if(mobile){
+
+            pages.push(1);
+
+            if(currentPage > 3){
+
+                pages.push("...");
+
+            }
+
+            const start =
+                Math.max(
+                    2,
+                    currentPage - 1
+                );
+
+            const end =
+                Math.min(
+                    totalPages - 1,
+                    currentPage + 1
+                );
+
+            for(
+                let i=start;
+                i<=end;
+                i++
+            ){
+                pages.push(i);
+            }
+
+            if(
+                currentPage <
+                totalPages - 2
+            ){
+                pages.push("...");
+            }
+
+            pages.push(totalPages);
+
+        }else{
+
+            pages.push(1);
+
+            const start =
+                Math.max(
+                    2,
+                    currentPage - 2
+                );
+
+            const end =
+                Math.min(
+                    totalPages - 1,
+                    currentPage + 2
+                );
+
+            if(start > 2){
+
+                pages.push("...");
+
+            }
+
+            for(
+                let i=start;
+                i<=end;
+                i++
+            ){
+                pages.push(i);
+            }
+
+            if(
+                end <
+                totalPages - 1
+            ){
+                pages.push("...");
+            }
+
+            pages.push(totalPages);
+
+        }
+
+    }
+
+    pages.forEach(page => {
+
+        if(page === "..."){
+
+            const span =
+                document.createElement(
+                    "span"
+                );
+
+            span.className =
+                "page-btn ellipsis";
+
+            span.textContent =
+                "...";
+
+            container.appendChild(
+                span
+            );
+
+            return;
+
+        }
+
+        const btn =
+            document.createElement(
+                "button"
+            );
+
+        btn.textContent =
+            page;
+
+        btn.className =
+            "page-btn";
+
+        if(page === currentPage){
+
+            btn.classList.add(
+                "active"
+            );
+
+        }
+
+        btn.addEventListener(
+            "click",
+            () => {
+
+                currentPage = page;
+
+                renderPage();
+
+            }
+        );
+
+        container.appendChild(
+            btn
+        );
+
+    });
+
+}
+
+Update Render Function
+
+At the end of renderPage():
+
+buildPageNumbers();
+
+
+And whenever the browser is resized:
+
+window.addEventListener(
+    "resize",
+    buildPageNumbers
+);
+
+Example Output
+Desktop (Page 8 of 20)
+← Prev
+
+1 ... 6 7 8 9 10 ... 20
+
+Next →
+
+Tablet
+← Prev
+
+1 ... 7 8 9 ... 20
+
+Next →
+
+Mobile
+← Prev
+
+1 ... 8 ... 20
+
+Next →
+
+Small Dataset
+← Prev
+
+1 2 3 4 5
+
+Next →
+
+
+This gives the Atlas a professional, scalable pagination system that works well with the responsive grid, filters, search, and large opportunity datasets.
