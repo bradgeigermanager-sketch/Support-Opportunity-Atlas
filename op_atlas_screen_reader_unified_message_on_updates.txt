@@ -1,0 +1,120 @@
+Yes. For accessibility, it's best to make one complete announcement per state change rather than announcing separate messages for result count, page number, page size, etc.
+
+This prevents screen readers from reading:
+
+24 opportunities found.
+Page 2 of 3.
+Showing 12 per page.
+
+
+as three separate interruptions.
+
+Instead, generate one consolidated status message.
+
+Single Announcement Function
+function announceCurrentState() {
+
+    const totalResults = filteredCards.length;
+
+    const totalPages = Math.max(
+        1,
+        Math.ceil(totalResults / cardsPerPage)
+    );
+
+    const start =
+        totalResults === 0
+            ? 0
+            : ((currentPage - 1) * cardsPerPage) + 1;
+
+    const end =
+        Math.min(
+            start + cardsPerPage - 1,
+            totalResults
+        );
+
+    let message;
+
+    if (totalResults === 0) {
+
+        message =
+            "No opportunities match your current filters.";
+
+    } else {
+
+        message =
+            `Showing opportunities ${start} through ${end} of ${totalResults}. ` +
+            `Page ${currentPage} of ${totalPages}.`;
+
+    }
+
+    document.getElementById(
+        "atlasStatus"
+    ).textContent = message;
+}
+
+Use It Everywhere
+After Filtering
+filterOpportunities();
+
+announceCurrentState();
+
+After Pagination
+renderPage();
+
+announceCurrentState();
+
+After Page Size Changes
+cardsPerPage = Number(this.value);
+
+currentPage = 1;
+
+renderPage();
+
+announceCurrentState();
+
+After Reset
+resetFilters();
+
+announceCurrentState();
+
+Example Announcements
+Normal
+Showing opportunities 1 through 12 of 48. Page 1 of 4.
+
+Middle Page
+Showing opportunities 25 through 36 of 48. Page 3 of 4.
+
+Last Page
+Showing opportunities 37 through 48 of 48. Page 4 of 4.
+
+Small Result Set
+Showing opportunities 1 through 5 of 5. Page 1 of 1.
+
+No Results
+No opportunities match your current filters.
+
+Avoid Duplicate Reads
+
+When updating the live region repeatedly, clear it briefly before setting the new message:
+
+function announceCurrentState() {
+
+    const status =
+        document.getElementById(
+            "atlasStatus"
+        );
+
+    status.textContent = "";
+
+    setTimeout(() => {
+
+        status.textContent = buildStatusMessage();
+
+    }, 50);
+
+}
+
+
+This helps ensure screen readers treat each update as a new announcement.
+
+The result is a cleaner, less noisy experience where users hear exactly one concise summary whenever the Opportunity Atlas state changes.
