@@ -1,0 +1,516 @@
+Opportunity Atlas v1.0
+
+A searchable map of needs, opportunities, skills, resources, organizations, and impact pathways.
+
+Instead of searching:
+
+"Find me an NGO."
+
+Users search:
+
+"I'm a programmer with 5 hours/week. What educational opportunities need software help in Canada?"
+
+or
+
+"What are the biggest unmet legal education needs in rural communities?"
+
+1. Core Data Model
+
+The Atlas revolves around Opportunities.
+
+CAUSE
+  ↓
+PROBLEM
+  ↓
+OPPORTUNITY
+  ↓
+ACTIONS
+  ↓
+ORGANIZATIONS
+  ↓
+IMPACT
+
+
+Example:
+
+Education
+  ↓
+Low Math Literacy
+  ↓
+Grade 6 Tutoring Program
+  ↓
+Volunteer Tutor
+  ↓
+Local School Foundation
+  ↓
+100 Students Helped
+
+2. Main Search Interface
+Search Bar
+[ Search opportunities, causes, skills, problems... ]
+
+
+Examples:
+
+tutoring
+climate adaptation
+food insecurity
+Indigenous education
+legal aid
+data science
+curriculum development
+Quick Filters
+Cause
+□ Education
+□ Health
+□ Poverty
+□ Environment
+□ Human Rights
+□ Legal Aid
+□ Housing
+□ Community Development
+□ Food Security
+□ Culture
+□ Science
+□ Technology
+
+Skills
+□ Programming
+□ Writing
+□ Teaching
+□ Design
+□ Data Analysis
+□ Finance
+□ Law
+□ Healthcare
+□ Research
+□ Engineering
+□ Project Management
+□ Translation
+
+Contribution Type
+□ Learn
+□ Volunteer
+□ Mentor
+□ Donate
+□ Build
+□ Research
+□ Teach
+□ Advocate
+□ Lead
+□ Govern
+
+Time Commitment
+□ 1 Hour
+□ Weekly
+□ Monthly
+□ Project-Based
+□ Ongoing
+
+Impact Scale
+□ Individual
+□ Community
+□ City
+□ Province
+□ National
+□ International
+□ Global
+
+3. Cause Explorer
+
+A high-level map.
+
+EDUCATION
+├─ Literacy
+├─ STEM
+├─ Tutoring
+├─ Curriculum
+├─ Libraries
+└─ Educational Technology
+
+HEALTH
+├─ Cancer
+├─ Public Health
+├─ Accessibility
+├─ Mental Health
+└─ Nutrition
+
+LEGAL AID
+├─ Public Legal Education
+├─ Tenant Rights
+├─ Family Law
+├─ Employment Law
+└─ Human Rights
+
+
+Users can drill down.
+
+4. Opportunity Card
+
+Each result appears as a card.
+
+Example
+Opportunity
+
+Math Mentor Program
+
+Problem
+
+Students falling behind in mathematics
+
+Cause
+
+Education
+
+Skills Needed
+Teaching
+Mathematics
+Communication
+Ways To Help
+
+✅ Tutor
+
+✅ Develop Resources
+
+✅ Create Practice Problems
+
+✅ Curriculum Review
+
+Time
+
+2-4 hours/week
+
+Impact
+
+50 students per semester
+
+Related Organizations
+School Foundation
+Community Learning Centre
+Match Score
+
+92%
+
+5. Problem Explorer
+
+Instead of organizations, explore problems.
+
+PROBLEM:
+Low Financial Literacy
+
+AFFECTED GROUPS:
+- Youth
+- Newcomers
+- Seniors
+
+CURRENT NEEDS:
+- Workshops
+- Educational Materials
+- Translations
+
+WAYS TO HELP:
+- Teach
+- Write
+- Design Resources
+- Build Learning Tools
+
+6. Skills Explorer
+
+Start from skills.
+
+Example:
+
+Programming
+
+Possible Contributions:
+
+Education
+  → Learning Platforms
+  → Assessment Tools
+
+Health
+  → Patient Information Systems
+
+Legal Aid
+  → Rights Information Websites
+
+Environment
+  → Citizen Science Platforms
+
+Community
+  → Volunteer Management Systems
+
+Writing
+
+Possible Contributions:
+
+Grant Writing
+Reports
+Newsletters
+Educational Guides
+Policy Briefs
+Translations
+
+7. Resource Explorer
+
+Users search based on available resources.
+
+I Have
+Time
+Money
+Knowledge
+Equipment
+Space
+Network
+Leadership
+Technology
+
+Example
+
+"I have a meeting room."
+
+Atlas suggests:
+
+Community classes
+Support groups
+Nonprofit events
+Youth programs
+8. Geographic Layer
+
+Interactive map.
+
+Canada
+ ├─ Province
+ │   ├─ City
+ │   │   ├─ Community
+ │   │   │   ├─ Needs
+ │   │   │   └─ Opportunities
+
+
+Example:
+
+Sheridan
+  ├─ Literacy Programs
+  ├─ Food Banks
+  ├─ Community Gardens
+  ├─ Youth Mentorship
+  └─ Senior Outreach
+
+9. Impact Calculator
+
+Users estimate impact.
+
+Input:
+
+Skill:
+Programming
+
+Hours:
+5/week
+
+Duration:
+1 year
+
+
+Output:
+
+Potential Contributions:
+
+- Volunteer Management App
+- Education Resource Portal
+- Data Dashboard
+
+Estimated Reach:
+500-10,000 users
+
+10. Pathway Builder
+
+The system builds a personalized path.
+
+Example:
+
+Current State
+Student
+Programming
+Interested in Education
+
+
+Atlas generates:
+
+Step 1
+Volunteer tutor
+
+Step 2
+Build educational website
+
+Step 3
+Join curriculum nonprofit
+
+Step 4
+Lead project
+
+Step 5
+Board member
+
+Step 6
+Create education initiative
+
+11. Opportunity Taxonomy
+
+Every opportunity gets tags.
+
+CAUSE:
+Education
+
+SUBCAUSE:
+Mathematics
+
+PROBLEM:
+Low numeracy
+
+ACTION:
+Tutoring
+
+SKILLS:
+Teaching
+Mathematics
+
+RESOURCE:
+Time
+
+IMPACT:
+Community
+
+LEVEL:
+Volunteer
+
+12. Opportunity Maturity Scale
+Level 0
+Learn
+
+Level 1
+Donate
+
+Level 2
+Volunteer
+
+Level 3
+Apply Skills
+
+Level 4
+Project Leader
+
+Level 5
+Program Manager
+
+Level 6
+Advisor
+
+Level 7
+Board Member
+
+Level 8
+Policy Influence
+
+Level 9
+Organization Founder
+
+13. Atlas Knowledge Graph
+
+The most powerful feature.
+
+Skill
+  ↓
+Action
+  ↓
+Problem
+  ↓
+Cause
+  ↓
+Organization
+  ↓
+Impact
+
+
+Example:
+
+Python
+  ↓
+Build Learning Platform
+  ↓
+Improve Math Education
+  ↓
+Education Cause
+  ↓
+Nonprofit Partner
+  ↓
+5000 Students Served
+
+14. Opportunity Record Template
+TITLE:
+___________________
+
+CAUSE:
+___________________
+
+PROBLEM:
+___________________
+
+LOCATION:
+___________________
+
+SKILLS NEEDED:
+___________________
+
+RESOURCES NEEDED:
+___________________
+
+WAYS TO HELP:
+□ Teach
+□ Build
+□ Donate
+□ Mentor
+□ Research
+□ Advocate
+
+TIME REQUIRED:
+___________________
+
+EXPECTED IMPACT:
+___________________
+
+RELATED ORGANIZATIONS:
+___________________
+
+Future Vision: Opportunity Atlas 2.0
+
+Imagine a system where you enter:
+
+Skills:
+Programming
+Writing
+Teaching
+
+Interests:
+Education
+Legal Aid
+
+Location:
+Canada
+
+Time:
+4 Hours/Week
+
+
+And it instantly produces:
+
+unmet needs matching your skills,
+organizations working on those needs,
+volunteer and career opportunities,
+learning paths,
+projects you could start yourself,
+estimated impact.
+
+That transforms nonprofit discovery from organization-centered to impact-centered. The question becomes:
+
+"Given who I am and what I can contribute, where can I make the greatest difference?"
