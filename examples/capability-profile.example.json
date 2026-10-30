@@ -1,0 +1,68 @@
+{
+  "profile_id": "example-community-team-001",
+  "version": "1.0.0",
+  "profile_kind": "team",
+  "display_label": "Illustrative community repair team",
+  "capabilities": [
+    {
+      "capability_id": "cap.skill.repair",
+      "capability_family": "cap.skill",
+      "level": "working",
+      "evidence_state": "self_reported",
+      "evidence_refs": [],
+      "quantity": null,
+      "unit": null,
+      "notes": "General small-equipment repair experience; not a regulated trade qualification."
+    },
+    {
+      "capability_id": "cap.resource.tools",
+      "capability_family": "cap.resource",
+      "level": "working",
+      "evidence_state": "self_reported",
+      "quantity": 1,
+      "unit": "shared tool kit",
+      "notes": "Illustrative resource."
+    },
+    {
+      "capability_id": "cap.relationship.team_capacity",
+      "capability_family": "cap.relationship",
+      "level": "working",
+      "evidence_state": "self_reported",
+      "quantity": 4,
+      "unit": "participants",
+      "notes": "Synthetic example only."
+    }
+  ],
+  "availability": [
+    {
+      "availability_kind": "weekly_hours",
+      "status": "limited",
+      "start": null,
+      "end": null,
+      "quantity": 8,
+      "unit": "team-hours"
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_type": "authorization",
+      "value": "No electrical, gas, structural, or other regulated work without appropriately qualified and authorized personnel.",
+      "hard_constraint": true,
+      "source_ref": null
+    }
+  ],
+  "preferences": [
+    "community_development",
+    "hands_on",
+    "local"
+  ],
+  "service_areas": [
+    "example locality only"
+  ],
+  "privacy": {
+    "publication_level": "private_matching",
+    "personal_data_minimized": true,
+    "consent_record_ref": null
+  },
+  "last_reviewed_at": null
+}
