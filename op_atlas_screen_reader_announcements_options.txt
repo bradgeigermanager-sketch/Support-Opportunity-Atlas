@@ -1,0 +1,140 @@
+To announce both the current result count and the current page in a single screen-reader message, update your live region whenever filtering or pagination changes.
+
+Screen Reader Status Region
+<div
+    id="atlasStatus"
+    class="sr-only"
+    aria-live="polite"
+    aria-atomic="true">
+</div>
+
+Status Update Function
+function announceResults() {
+
+    const totalResults = filteredCards.length;
+
+    const totalPages = Math.max(
+        1,
+        Math.ceil(totalResults / cardsPerPage)
+    );
+
+    let message =
+        `${totalResults} opportunities found. ` +
+        `Page ${currentPage} of ${totalPages}.`;
+
+    if (totalResults === 0) {
+
+        message =
+            "No opportunities match your current filters.";
+
+    }
+
+    document.getElementById(
+        "atlasStatus"
+    ).textContent = message;
+
+}
+
+Update After Filtering
+
+At the end of filterOpportunities():
+
+renderPage();
+
+announceResults();
+
+
+Example announcement:
+
+24 opportunities found. Page 1 of 3.
+
+Update After Pagination
+
+At the end of renderPage():
+
+announceResults();
+
+
+Examples:
+
+24 opportunities found. Page 2 of 3.
+
+24 opportunities found. Page 3 of 3.
+
+Update After Page Size Changes
+pageSizeSelect.addEventListener(
+    "change",
+    function() {
+
+        cardsPerPage = Number(this.value);
+
+        currentPage = 1;
+
+        renderPage();
+
+        announceResults();
+
+    }
+);
+
+
+Example:
+
+24 opportunities found. Page 1 of 2.
+
+Optional: More Helpful Messages
+
+You can provide additional context:
+
+function announceResults() {
+
+    const totalResults = filteredCards.length;
+
+    const totalPages = Math.max(
+        1,
+        Math.ceil(totalResults / cardsPerPage)
+    );
+
+    const start =
+        totalResults === 0
+            ? 0
+            : ((currentPage - 1) * cardsPerPage) + 1;
+
+    const end =
+        Math.min(
+            start + cardsPerPage - 1,
+            totalResults
+        );
+
+    let message;
+
+    if (totalResults === 0) {
+
+        message =
+            "No opportunities match your current filters.";
+
+    } else {
+
+        message =
+            `Showing opportunities ${start} through ${end} of ${totalResults}. ` +
+            `Page ${currentPage} of ${totalPages}.`;
+
+    }
+
+    document.getElementById(
+        "atlasStatus"
+    ).textContent = message;
+
+}
+
+
+Announcements become:
+
+Showing opportunities 1 through 9 of 47. Page 1 of 6.
+
+Showing opportunities 10 through 18 of 47. Page 2 of 6.
+
+Showing opportunities 46 through 47 of 47. Page 6 of 6.
+
+
+This gives screen-reader users the same situational awareness that sighted users get from the result counter and pagination controls.
