@@ -1,0 +1,27 @@
+{
+  "source_id": "source.synthetic-example",
+  "source_type": "other",
+  "source_uri": "https://example.org/illustrative-stream-monitoring",
+  "publisher_id": "publisher.synthetic-example",
+  "claimed_jurisdiction": null,
+  "topical_scope": [
+    "domain.environment",
+    "domain.science"
+  ],
+  "collection_method": "manual",
+  "reuse_constraints": "Synthetic demonstration URI; not a real source and not approved for ingestion.",
+  "expected_update_interval_hours": null,
+  "last_checked_at": "2026-10-29T00:00:00Z",
+  "last_successful_retrieval_at": null,
+  "next_check_at": null,
+  "parser_version": null,
+  "reliability_assessment": {
+    "level": "unassessed",
+    "rationale": "Synthetic example only.",
+    "assessed_at": null
+  },
+  "correction_route": null,
+  "health_status": "proposed",
+  "created_at": "2026-10-29T00:00:00Z",
+  "updated_at": "2026-10-29T00:00:00Z"
+}
