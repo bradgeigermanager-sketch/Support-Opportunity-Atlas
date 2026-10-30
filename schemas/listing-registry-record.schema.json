@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bradgeigermanager-sketch.github.io/Support-Opportunity-Atlas/schemas/listing-registry-record.schema.json",
+  "title": "Opportunity Listings Registry Record",
+  "description": "A source-backed, versioned listing record with independent workflow, operational, availability, and verification states.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "record_type",
+    "schema_version",
+    "version",
+    "title",
+    "primary_type_id",
+    "workflow_status",
+    "operational_status",
+    "availability",
+    "verification_state",
+    "source_observations",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "record_type": {
+      "const": "opportunity_listing"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "supersedes_version": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 180
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 3000
+    },
+    "primary_type_id": {
+      "type": "string",
+      "pattern": "^opp\\.[a-z0-9_]+(\\.[a-z0-9_]+)+$"
+    },
+    "secondary_type_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "domain_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "action_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "listing_pattern_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "observed_at"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "source_uri": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_fingerprint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "extraction_method": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "asserted_status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "workflow_status": {
+      "enum": [
+        "candidate",
+        "captured",
+        "normalizing",
+        "under_review",
+        "published",
+        "restricted",
+        "rejected",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "operational_status": {
+      "enum": [
+        "draft",
+        "submitted",
+        "under_review",
+        "published",
+        "paused",
+        "filled",
+        "completed",
+        "expired",
+        "withdrawn",
+        "rejected"
+      ]
+    },
+    "availability": {
+      "enum": [
+        "open",
+        "waitlist",
+        "limited_capacity",
+        "not_accepting",
+        "unknown",
+        "not_applicable"
+      ]
+    },
+    "verification_state": {
+      "enum": [
+        "unassessed",
+        "source_checked",
+        "publisher_confirmed",
+        "claims_partially_verified",
+        "claims_verified",
+        "contested",
+        "stale"
+      ]
+    },
+    "participation_relationship": {
+      "enum": [
+        "volunteer",
+        "employee",
+        "contractor",
+        "grantee",
+        "donor",
+        "learner",
+        "partner",
+        "member",
+        "public_participant",
+        "service_recipient",
+        "unknown"
+      ]
+    },
+    "delivery_mode": {
+      "enum": [
+        "in_person",
+        "remote",
+        "hybrid",
+        "mobile",
+        "place_based",
+        "unknown"
+      ]
+    },
+    "compensation_status": {
+      "enum": [
+        "paid",
+        "unpaid",
+        "stipend",
+        "fee",
+        "in_kind",
+        "reimbursed",
+        "not_applicable",
+        "unknown"
+      ]
+    },
+    "location": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jurisdiction_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "remote_allowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "valid_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "application_deadline": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "last_confirmed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "review_due_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "duplicate_candidates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "quality_assessment_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
