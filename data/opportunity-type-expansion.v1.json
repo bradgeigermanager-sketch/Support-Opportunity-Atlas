@@ -1,0 +1,1105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "dataset_id": "opportunity-type-expansion",
+  "version": "1.0.0",
+  "record_kind": "opportunity_type_vocabulary_seed",
+  "status": "proposed",
+  "is_live_listing_data": false,
+  "description": "Additive vocabulary seed for opportunity mechanisms not fully represented in the initial catalog. Terms do not assert the existence or availability of any real offer.",
+  "families": [
+    {
+      "family_label": "R. Access to assets, facilities, and infrastructure",
+      "description": "Access rights or temporary use of existing assets rather than transfer of ownership.",
+      "terms": [
+        {
+          "term_id": "opp.access.land",
+          "preferred_label": "Land access",
+          "definition": "Use of land for cultivation, conservation, testing, temporary use, or community activity.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.facility",
+          "preferred_label": "Facility access",
+          "definition": "Use of buildings, rooms, workshops, classrooms, or specialist spaces.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.equipment",
+          "preferred_label": "Equipment access",
+          "definition": "Borrowing, leasing, booking, or supervised use of tools and equipment.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.infrastructure",
+          "preferred_label": "Infrastructure access",
+          "definition": "Use of networks, utilities, transport infrastructure, or shared physical systems.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.compute",
+          "preferred_label": "Computing resource access",
+          "definition": "Access to compute, storage, cloud credits, or specialized computing environments.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.collection",
+          "preferred_label": "Collection and archive access",
+          "definition": "Access to collections, archives, specimens, records, or research materials under defined conditions.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.transport",
+          "preferred_label": "Mobility and fleet access",
+          "definition": "Access to vehicles, shared mobility, fleet capacity, or transport services.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.access.workspace",
+          "preferred_label": "Workspace access",
+          "definition": "Use of desks, studios, maker spaces, laboratories, or coworking environments.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "S. Rights, licenses, permissions, and intellectual property",
+      "description": "Opportunities created by permission to use, adapt, distribute, or steward rights and knowledge assets.",
+      "terms": [
+        {
+          "term_id": "opp.rights.license",
+          "preferred_label": "License opportunity",
+          "definition": "Obtain or provide a license to use intellectual property, software, content, data, or technology.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.rights.permission",
+          "preferred_label": "Permission or authorization",
+          "definition": "Seek or grant permission for a defined activity, use, study, installation, or access.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.rights.open_content",
+          "preferred_label": "Open content contribution",
+          "definition": "Publish, adapt, translate, or maintain reusable content under stated terms.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.rights.patent_transfer",
+          "preferred_label": "Technology transfer",
+          "definition": "Transfer, license, or commercialize technology or intellectual property.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.rights.data_use",
+          "preferred_label": "Data-use agreement",
+          "definition": "Obtain governed access to data for a defined purpose with privacy and security conditions.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.rights.stewardship",
+          "preferred_label": "Stewardship or custodianship",
+          "definition": "Take responsibility for maintaining, protecting, or administering an asset or resource.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "T. Data, information, and knowledge access",
+      "description": "Opportunities centered on access to information resources, records, datasets, or expertise.",
+      "terms": [
+        {
+          "term_id": "opp.info.open_data",
+          "preferred_label": "Open data access",
+          "definition": "Access or reuse publicly released datasets and documented information resources.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.info.records_access",
+          "preferred_label": "Records access",
+          "definition": "Request or obtain access to records under applicable disclosure, privacy, and retention rules.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.info.knowledge_exchange",
+          "preferred_label": "Knowledge exchange session",
+          "definition": "Participate in structured expert briefings, peer exchange, or communities of practice.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.info.expert_access",
+          "preferred_label": "Expert consultation access",
+          "definition": "Obtain time-limited access to specialist advice, office hours, or technical consultation.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.info.library_access",
+          "preferred_label": "Library and repository access",
+          "definition": "Use collections, repositories, databases, or information services.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.info.translation_review",
+          "preferred_label": "Information validation and review",
+          "definition": "Review, correct, contextualize, or validate public information and reference material.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "U. Shared ownership, membership, and collective economic participation",
+      "description": "Participation through ownership, membership, cooperative governance, or pooled assets.",
+      "terms": [
+        {
+          "term_id": "opp.collective.cooperative_membership",
+          "preferred_label": "Cooperative membership",
+          "definition": "Join a member-owned organization with defined rights, duties, and governance.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.collective.shared_ownership",
+          "preferred_label": "Shared ownership participation",
+          "definition": "Acquire or contribute a defined ownership interest in a shared asset or enterprise.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.collective.community_ownership",
+          "preferred_label": "Community ownership initiative",
+          "definition": "Participate in community acquisition, stewardship, or governance of an asset.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.collective.timebank",
+          "preferred_label": "Time-bank exchange",
+          "definition": "Exchange services through a time-credit or reciprocal contribution system.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.collective.resource_pool",
+          "preferred_label": "Pooled resource participation",
+          "definition": "Contribute to or draw from a governed pool of money, equipment, labor, or supplies.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.collective.membership",
+          "preferred_label": "Association or network membership",
+          "definition": "Join an association, professional body, community group, or membership network.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "V. Standards, evaluation, assurance, and governance work",
+      "description": "Contribute to rules, quality systems, evaluation, certification, or oversight.",
+      "terms": [
+        {
+          "term_id": "opp.assurance.standards",
+          "preferred_label": "Standards development",
+          "definition": "Draft, review, comment on, or maintain technical, professional, or community standards.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.conformity",
+          "preferred_label": "Conformity assessment",
+          "definition": "Assess whether a product, process, service, or system meets stated requirements.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.certification",
+          "preferred_label": "Certification pathway",
+          "definition": "Pursue or provide a recognized assessment and certification process.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.audit",
+          "preferred_label": "Audit and assurance engagement",
+          "definition": "Conduct or participate in a defined audit, inspection, or assurance review.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.evaluation",
+          "preferred_label": "Program evaluation",
+          "definition": "Evaluate a program, service, intervention, or project against stated criteria.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.governance",
+          "preferred_label": "Governance participation",
+          "definition": "Participate in oversight, ethics review, fiduciary governance, or accountable decision structures.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.assurance.testing",
+          "preferred_label": "Testing and validation",
+          "definition": "Test products, systems, methods, or prototypes against defined requirements.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "W. Testbeds, pilots, demonstrations, and implementation trials",
+      "description": "Opportunities to host, join, or contribute to controlled trials and real-world demonstrations.",
+      "terms": [
+        {
+          "term_id": "opp.pilot.host",
+          "preferred_label": "Pilot host site",
+          "definition": "Provide a site, facility, population context, or operational setting for a bounded pilot.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.pilot.participant",
+          "preferred_label": "Pilot participant",
+          "definition": "Participate in a trial or demonstration with clear consent and risk information.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.pilot.prototype",
+          "preferred_label": "Prototype testing",
+          "definition": "Test or provide feedback on a prototype, service, or proposed design.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.pilot.demonstration",
+          "preferred_label": "Demonstration project",
+          "definition": "Host or contribute to a demonstration of a technology, method, or service.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.pilot.implementation",
+          "preferred_label": "Implementation partnership",
+          "definition": "Help implement and assess a new system or practice in an operational setting.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.pilot.sandbox",
+          "preferred_label": "Regulatory or technical sandbox",
+          "definition": "Participate in a supervised environment for testing novel approaches under defined controls.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "X. Caregiving, household, and interpersonal support exchanges",
+      "description": "Structured support and reciprocal assistance at household or interpersonal scale.",
+      "terms": [
+        {
+          "term_id": "opp.household.childcare",
+          "preferred_label": "Childcare support exchange",
+          "definition": "Provide, receive, or coordinate childcare through appropriately safeguarded arrangements.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.household.respite",
+          "preferred_label": "Respite exchange",
+          "definition": "Arrange temporary relief for caregivers with clear qualifications and safeguards.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.household.home_support",
+          "preferred_label": "Household support",
+          "definition": "Coordinate practical household tasks, maintenance, or daily-living assistance.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.household.companionship",
+          "preferred_label": "Companionship participation",
+          "definition": "Provide or receive structured companionship and social connection.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.household.peer_support",
+          "preferred_label": "Peer support exchange",
+          "definition": "Exchange experience-based support within defined boundaries and referral pathways.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.household.accessibility",
+          "preferred_label": "Personal accessibility support",
+          "definition": "Coordinate communication, navigation, or practical accessibility assistance.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "Y. Mobility, relocation, and geographic transition",
+      "description": "Opportunities involving movement between places, access to destinations, or relocation support.",
+      "terms": [
+        {
+          "term_id": "opp.mobility.relocation",
+          "preferred_label": "Relocation support",
+          "definition": "Support or receive assistance with a move, resettlement, or geographic transition.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.mobility.travel_support",
+          "preferred_label": "Travel support",
+          "definition": "Access travel assistance for education, work, care, participation, or essential services.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.mobility.exchange",
+          "preferred_label": "Place-based exchange",
+          "definition": "Participate in a temporary exchange, residency, field placement, or stay in another location.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.mobility.accessible_route",
+          "preferred_label": "Accessible mobility planning",
+          "definition": "Contribute to or use accessible route planning, navigation, and mobility information.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.mobility.host",
+          "preferred_label": "Host or placement opportunity",
+          "definition": "Host a person, team, project, or visiting participant under defined arrangements.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "Z. Voice, testimony, lived experience, and public-interest input",
+      "description": "Contribute knowledge, testimony, feedback, or experience to research, services, policy, or accountability.",
+      "terms": [
+        {
+          "term_id": "opp.voice.testimony",
+          "preferred_label": "Testimony or evidence submission",
+          "definition": "Submit testimony, evidence, or a statement to an authorized inquiry or process.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.voice.lived_experience",
+          "preferred_label": "Lived-experience participation",
+          "definition": "Contribute experience to service design, research, evaluation, or policy with consent and compensation terms clear.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.voice.user_testing",
+          "preferred_label": "User research and usability participation",
+          "definition": "Participate in interviews, usability studies, or structured feedback sessions.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.voice.community_review",
+          "preferred_label": "Community review panel",
+          "definition": "Review proposals, plans, services, or materials from a community perspective.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.voice.grievance",
+          "preferred_label": "Complaint or remedy pathway",
+          "definition": "Use a defined process to report a concern, seek review, or request remedy.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.voice.information_request",
+          "preferred_label": "Information request opportunity",
+          "definition": "Submit a formal request for public or organizational information under applicable rules.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "AA. Land, environmental, and resource stewardship rights",
+      "description": "Longer-term stewardship, access, or management arrangements for land and natural resources.",
+      "terms": [
+        {
+          "term_id": "opp.stewardship.conservation_agreement",
+          "preferred_label": "Conservation agreement",
+          "definition": "Enter a defined agreement to conserve land, habitat, or natural resources.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.stewardship.land_lease",
+          "preferred_label": "Land-use lease or license",
+          "definition": "Access land under a lease, license, easement, or other defined use arrangement.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.stewardship.water_rights",
+          "preferred_label": "Water access or allocation",
+          "definition": "Participate in a governed water access, allocation, or stewardship arrangement.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.stewardship.seed_genetic",
+          "preferred_label": "Seed and genetic resource exchange",
+          "definition": "Access, conserve, or exchange seeds or genetic resources under applicable rules.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.stewardship.monitoring_custodian",
+          "preferred_label": "Environmental data custodian",
+          "definition": "Maintain monitoring equipment, records, or environmental observations over time.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "AB. Market discovery, demand aggregation, and collective purchasing",
+      "description": "Coordinate demand, supply, procurement, and market participation without assuming a conventional job or grant.",
+      "terms": [
+        {
+          "term_id": "opp.market.demand",
+          "preferred_label": "Demand aggregation",
+          "definition": "Combine purchasing or service demand to improve access, affordability, or coordination.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.market.group_purchase",
+          "preferred_label": "Group purchasing",
+          "definition": "Participate in a collective purchase with transparent terms and allocation rules.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.market.preorder",
+          "preferred_label": "Preorder or advance commitment",
+          "definition": "Commit to a future purchase or delivery subject to stated conditions.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.market.offtake",
+          "preferred_label": "Offtake or purchase commitment",
+          "definition": "Offer or secure a defined future purchase of goods, energy, or services.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.market.distribution",
+          "preferred_label": "Distribution channel access",
+          "definition": "Access or provide routes to distribute, sell, or deliver goods and services.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.market.barter",
+          "preferred_label": "Barter or non-cash exchange",
+          "definition": "Exchange goods or services under explicit valuation and agreement terms.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    },
+    {
+      "family_label": "AC. Time-limited placements, residencies, and immersion",
+      "description": "Temporary placements that provide access, experience, or focused participation.",
+      "terms": [
+        {
+          "term_id": "opp.placement.residency",
+          "preferred_label": "Residency",
+          "definition": "Undertake a time-limited placement in an artistic, research, professional, or community setting.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.placement.job_shadow",
+          "preferred_label": "Job shadowing",
+          "definition": "Observe a role or workplace for structured career exploration.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.placement.field_placement",
+          "preferred_label": "Field placement",
+          "definition": "Complete supervised practical work in a defined field setting.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.placement.exchange",
+          "preferred_label": "Exchange placement",
+          "definition": "Temporarily exchange roles, locations, expertise, or institutional settings.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.placement.secondment",
+          "preferred_label": "Secondment",
+          "definition": "Undertake a temporary assignment within another team or organization.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        },
+        {
+          "term_id": "opp.placement.visiting",
+          "preferred_label": "Visiting appointment",
+          "definition": "Participate through a temporary visiting scholar, expert, practitioner, or professional role.",
+          "taxonomy": "opportunity_type",
+          "status": "proposed",
+          "version": "1.0.0",
+          "synonyms": [],
+          "examples": [],
+          "non_examples": [
+            "A live listing or confirmed offer",
+            "A guarantee of eligibility, availability, safety, or benefit"
+          ]
+        }
+      ]
+    }
+  ]
+}
