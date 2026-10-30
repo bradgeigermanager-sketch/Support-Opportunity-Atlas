@@ -1,0 +1,490 @@
+Opportunity Atlas Framework
+
+Instead of mapping organizations, map opportunities to help.
+
+The core idea:
+
+Need
+  ↓
+Opportunity
+  ↓
+Required Resources
+  ↓
+Required Skills
+  ↓
+Possible Actions
+  ↓
+Organizations / Communities
+  ↓
+Impact
+
+
+An Opportunity Atlas becomes a searchable map of:
+
+Problems
+Needs
+Gaps
+Risks
+Assets
+People
+Communities
+Projects
+Solutions
+Level 1: The Human Needs Layer
+Survival
+
+Questions:
+
+Where are people hungry?
+Who lacks clean water?
+Who lacks shelter?
+Who lacks healthcare?
+
+Opportunity types:
+
+Food support
+Water systems
+Housing assistance
+Medical care
+
+Skills:
+
+Logistics
+Healthcare
+Engineering
+Fundraising
+Safety
+
+Questions:
+
+Where are people at risk?
+Who lacks protection?
+Who is vulnerable?
+
+Opportunity types:
+
+Crisis response
+Legal protection
+Violence prevention
+Emergency preparedness
+
+Skills:
+
+Counseling
+Law
+Social work
+Community organizing
+Learning
+
+Questions:
+
+Who lacks educational access?
+Who needs literacy support?
+What skills shortages exist?
+
+Opportunity types:
+
+Tutoring
+Mentorship
+Curriculum development
+Open educational resources
+
+Skills:
+
+Teaching
+Writing
+Technology
+Research
+Belonging
+
+Questions:
+
+Who is isolated?
+Which communities lack connection?
+
+Opportunity types:
+
+Community programs
+Peer support
+Youth groups
+Senior outreach
+
+Skills:
+
+Facilitation
+Mentorship
+Event planning
+Level 2: Community Needs Layer
+Housing
+
+Opportunity categories:
+
+Affordable housing
+Tenant support
+Homelessness prevention
+Accessibility retrofits
+
+Transportation
+
+Opportunity categories:
+
+Transit access
+Mobility assistance
+Rural transportation
+Accessible transportation
+
+Employment
+
+Opportunity categories:
+
+Career coaching
+Job readiness
+Apprenticeships
+Resume support
+Digital skills
+
+Food Systems
+
+Opportunity categories:
+
+Food banks
+Urban agriculture
+Food recovery
+Nutrition education
+
+Level 3: Knowledge & Information Layer
+
+One of the largest hidden categories.
+
+Information Gaps
+
+Questions:
+
+What information exists but is difficult to find?
+Who cannot access it?
+What knowledge is fragmented?
+
+Opportunity types:
+
+Directories
+Knowledge bases
+Search systems
+Educational resources
+Translation
+Documentation
+
+Knowledge Preservation
+
+Questions:
+
+What knowledge is disappearing?
+
+Opportunity types:
+
+Archives
+Libraries
+Museums
+Digital preservation
+Oral history projects
+
+Level 4: Justice Layer
+Legal Access
+
+Questions:
+
+Who cannot access the legal system?
+What rights are poorly understood?
+
+Opportunity types:
+
+Legal education
+Legal aid
+Plain-language guides
+Document support
+Court navigation
+
+Civic Participation
+
+Questions:
+
+Who lacks representation?
+Who lacks a voice?
+
+Opportunity types:
+
+Advocacy
+Policy development
+Community consultation
+Democratic participation
+
+Level 5: Environment Layer
+Conservation
+
+Questions:
+
+What needs protection?
+
+Opportunity types:
+
+Habitat restoration
+Species monitoring
+Conservation planning
+Citizen science
+
+Climate Adaptation
+
+Questions:
+
+What future risks exist?
+
+Opportunity types:
+
+Flood preparation
+Heat resilience
+Emergency planning
+Infrastructure assessments
+
+Level 6: Technology Layer
+
+Most social problems have technical dimensions.
+
+Digital Infrastructure
+
+Opportunity types:
+
+Websites
+Databases
+Volunteer systems
+Donor systems
+Knowledge platforms
+
+Accessibility
+
+Opportunity types:
+
+Screen-reader compliance
+Captioning
+Translation
+Assistive technology
+Inclusive design
+
+AI & Automation
+
+Opportunity types:
+
+Knowledge discovery
+Resource matching
+Document processing
+Education tools
+Justice tools
+Healthcare support
+
+Level 7: Research Layer
+Unknowns
+
+Questions:
+
+What don't we know?
+What hasn't been measured?
+
+Opportunity types:
+
+Research
+Evaluation
+Impact analysis
+Forecasting
+Data collection
+
+Evidence Building
+
+Opportunity types:
+
+Program evaluation
+Needs assessments
+Surveys
+Statistical analysis
+
+Level 8: Future Risks Layer
+
+Many important opportunities don't exist yet.
+
+Emerging Challenges
+
+Examples:
+
+Population aging
+Automation
+Climate migration
+New diseases
+Cybersecurity threats
+AI governance
+
+
+Question:
+
+What future problems can be prevented now?
+
+Opportunity Classification System
+
+Every opportunity can be tagged.
+
+Problem Type
+Education
+Health
+Housing
+Justice
+Environment
+Technology
+Employment
+Food
+Safety
+Culture
+Research
+
+Resource Needed
+Money
+Time
+Knowledge
+Technology
+Equipment
+Facilities
+Volunteers
+Leadership
+
+Skill Needed
+Teaching
+Programming
+Writing
+Law
+Medicine
+Research
+Design
+Engineering
+Translation
+Management
+
+Contribution Level
+Learn
+Donate
+Volunteer
+Assist
+Lead
+Advise
+Govern
+Fund
+Build
+Scale
+
+Personal Opportunity Matching Framework
+What Problems Do I Care About?
+□ Education
+□ Health
+□ Human Rights
+□ Environment
+□ Poverty
+□ Children
+□ Community
+□ Research
+□ Technology
+□ Culture
+
+What Resources Can I Contribute?
+□ Time
+□ Money
+□ Skills
+□ Equipment
+□ Space
+□ Network
+□ Leadership
+
+Which Skills Do I Have?
+□ Teaching
+□ Programming
+□ Writing
+□ Design
+□ Finance
+□ Law
+□ Healthcare
+□ Research
+□ Engineering
+□ Translation
+□ Project Management
+
+Desired Impact Scale
+□ One Person
+□ Family
+□ School
+□ Community
+□ City
+□ Province/State
+□ Country
+□ International
+□ Global
+
+Opportunity Atlas Record Template
+OPPORTUNITY NAME:
+______________________
+
+PROBLEM:
+______________________
+
+WHO IS AFFECTED:
+______________________
+
+LOCATION:
+______________________
+
+CAUSE CATEGORY:
+______________________
+
+SKILLS NEEDED:
+______________________
+
+RESOURCES NEEDED:
+______________________
+
+WAYS TO HELP:
+□ Donate
+□ Volunteer
+□ Teach
+□ Build Technology
+□ Research
+□ Advocate
+□ Mentor
+□ Lead
+
+IMPACT LEVEL:
+______________________
+
+RELATED ORGANIZATIONS:
+______________________
+
+LONG-TERM POTENTIAL:
+______________________
+
+The Ultimate Vision
+
+The Opportunity Atlas is not a directory of NGOs.
+
+It's a map of:
+
+Needs
++
+Problems
++
+Risks
++
+Knowledge Gaps
++
+Untapped Opportunities
++
+Available Resources
++
+Potential Helpers
+
+
+The central question becomes:
+
+"Given my skills, time, interests, and resources, where can I create the most positive impact right now?"
+
+That question works whether you're a student, teacher, programmer, scientist, lawyer, artist, retiree, entrepreneur, donor, volunteer, or future nonprofit founder.
