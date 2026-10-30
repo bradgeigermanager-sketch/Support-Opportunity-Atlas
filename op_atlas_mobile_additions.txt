@@ -1,0 +1,273 @@
+Yes. For the Opportunity Atlas, I'd switch from a desktop sidebar layout to a responsive mobile-first layout that works on phones, tablets, and desktops.
+
+Mobile UX Goals
+
+On mobile:
+
+Filters collapse into a drawer/panel
+Search bar stays at the top
+Cards become full-width
+Touch-friendly buttons
+Sticky filter button
+No horizontal scrolling
+Replace the Layout CSS
+
+Add this CSS to your <style> section:
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f8;
+}
+
+header{
+    background:#1f4e79;
+    color:white;
+    padding:16px;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:300px;
+    background:white;
+    padding:20px;
+    border-right:1px solid #ddd;
+}
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+input,
+select,
+button{
+    width:100%;
+    min-height:48px;
+    padding:12px;
+    margin-bottom:12px;
+    font-size:16px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:16px;
+    margin-bottom:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.score{
+    float:right;
+    background:#28a745;
+    color:white;
+    border-radius:20px;
+    padding:4px 10px;
+    font-size:14px;
+}
+
+.tag{
+    display:inline-block;
+    margin:4px 4px 0 0;
+    padding:4px 10px;
+    border-radius:999px;
+    background:#e8f1ff;
+    color:#1f4e79;
+    font-size:12px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid #ddd;
+    }
+
+    .main{
+        padding:12px;
+    }
+
+    .card{
+        margin-bottom:12px;
+    }
+
+    .score{
+        float:none;
+        display:inline-block;
+        margin-bottom:10px;
+    }
+
+}
+
+Add Mobile Filter Drawer
+
+Add this button immediately below the header:
+
+<button id="filterToggle">
+    🔎 Filters
+</button>
+
+
+Then wrap all sidebar content like this:
+
+<div class="sidebar" id="filtersPanel">
+
+    <!-- all existing filter controls -->
+
+</div>
+
+Add Mobile Drawer CSS
+#filterToggle{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    #filterToggle{
+        display:block;
+        position:sticky;
+        top:0;
+        z-index:100;
+        background:#0078d4;
+        color:white;
+        border:none;
+        width:100%;
+        padding:14px;
+    }
+
+    #filtersPanel{
+        display:none;
+    }
+
+    #filtersPanel.open{
+        display:block;
+    }
+
+}
+
+Add Drawer JavaScript
+
+Add before </script>:
+
+const filterToggle =
+document.getElementById("filterToggle");
+
+const filtersPanel =
+document.getElementById("filtersPanel");
+
+filterToggle.addEventListener("click", () => {
+
+    filtersPanel.classList.toggle("open");
+
+});
+
+Mobile Opportunity Cards
+
+Add quick action buttons:
+
+<div class="card-actions">
+
+<button>Details</button>
+
+<button>Save</button>
+
+<button>Share</button>
+
+</div>
+
+
+CSS:
+
+.card-actions{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.card-actions button{
+    flex:1;
+}
+
+Mobile-Friendly Opportunity Card Example
+<div class="card">
+
+<span class="score">95% Match</span>
+
+<h2>Math Education Mentor</h2>
+
+<p>
+Help students improve mathematics skills through tutoring.
+</p>
+
+<div class="tag">Education</div>
+<div class="tag">Teaching</div>
+<div class="tag">Mentor</div>
+
+<div class="card-actions">
+<button>Details</button>
+<button>Save</button>
+<button>Share</button>
+</div>
+
+</div>
+
+Future Mobile Features
+Bottom Navigation
+🏠 Home
+🔎 Search
+🗺 Atlas
+❤️ Saved
+👤 Profile
+
+Swipeable Cause Categories
+[Education]
+[Legal Aid]
+[Health]
+[Environment]
+[Housing]
+[Food]
+
+Mobile Map View
+○ Opportunities Near Me
+○ Remote Only
+○ National
+○ Global
+
+One-Tap Profile
+Skills:
+✓ Programming
+✓ Writing
+✓ Teaching
+
+Interests:
+✓ Education
+✓ Legal Aid
+
+Time:
+5 hrs/week
+
+
+Then the Atlas automatically ranks opportunities by fit.
+
+This gives you a responsive layout that works as:
+
+Desktop dashboard
+Tablet interface
+Mobile app-style experience
+
+without needing any framework like React, Bootstrap, or Tailwind.
