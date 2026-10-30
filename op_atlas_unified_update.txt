@@ -1,0 +1,294 @@
+Yes. Instead of calling multiple functions (renderPage(), announceResults(), buildPageNumbers(), etc.) from different places, refactor to a single state update pipeline.
+
+Central Update Function
+function updateAtlas() {
+
+    // 1. Filter results
+    applyFilters();
+
+    // 2. Fix page bounds
+    validateCurrentPage();
+
+    // 3. Render cards
+    renderPage();
+
+    // 4. Update result counter
+    updateResultsCount();
+
+    // 5. Update pagination UI
+    buildPageNumbers();
+
+    // 6. Update screen-reader status
+    updateLiveStatus();
+
+}
+
+Filter Function
+function applyFilters() {
+
+    filteredCards = [];
+
+    cards.forEach(card => {
+
+        const matches =
+            matchesSearch(card) &&
+            matchesCause(card) &&
+            matchesSkill(card) &&
+            matchesContribution(card);
+
+        if (matches) {
+
+            filteredCards.push(card);
+
+        }
+
+    });
+
+}
+
+Page Validation
+
+Ensures filtering doesn't leave you on a non-existent page.
+
+function validateCurrentPage() {
+
+    const totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                filteredCards.length /
+                cardsPerPage
+            )
+        );
+
+    if (currentPage > totalPages) {
+
+        currentPage = totalPages;
+
+    }
+
+    if (currentPage < 1) {
+
+        currentPage = 1;
+
+    }
+
+}
+
+Results Counter
+function updateResultsCount() {
+
+    document.getElementById(
+        "resultsCount"
+    ).textContent =
+        `${filteredCards.length} opportunities found`;
+
+}
+
+Single Live Status Function
+function updateLiveStatus() {
+
+    const totalResults =
+        filteredCards.length;
+
+    const totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                totalResults /
+                cardsPerPage
+            )
+        );
+
+    let message;
+
+    if (totalResults === 0) {
+
+        message =
+            "No opportunities match your current filters.";
+
+    } else {
+
+        const start =
+            ((currentPage - 1) * cardsPerPage) + 1;
+
+        const end =
+            Math.min(
+                start + cardsPerPage - 1,
+                totalResults
+            );
+
+        message =
+            `Showing opportunities ${start} through ${end} of ${totalResults}. ` +
+            `Page ${currentPage} of ${totalPages}.`;
+
+    }
+
+    const status =
+        document.getElementById(
+            "atlasStatus"
+        );
+
+    status.textContent = "";
+
+    requestAnimationFrame(() => {
+
+        status.textContent = message;
+
+    });
+
+}
+
+Event Handlers Become Tiny
+Search
+searchInput.addEventListener(
+    "input",
+    () => {
+
+        currentPage = 1;
+
+        updateAtlas();
+
+    }
+);
+
+Filters
+causeFilter.addEventListener(
+    "change",
+    () => {
+
+        currentPage = 1;
+
+        updateAtlas();
+
+    }
+);
+
+skillFilter.addEventListener(
+    "change",
+    () => {
+
+        currentPage = 1;
+
+        updateAtlas();
+
+    }
+);
+
+contributionFilter.addEventListener(
+    "change",
+    () => {
+
+        currentPage = 1;
+
+        updateAtlas();
+
+    }
+);
+
+Page Size
+pageSizeSelect.addEventListener(
+    "change",
+    () => {
+
+        cardsPerPage =
+            Number(
+                pageSizeSelect.value
+            );
+
+        localStorage.setItem(
+            "opportunityAtlasPageSize",
+            cardsPerPage
+        );
+
+        currentPage = 1;
+
+        updateAtlas();
+
+    }
+);
+
+Previous Page
+prevPageBtn.addEventListener(
+    "click",
+    () => {
+
+        currentPage--;
+
+        updateAtlas();
+
+    }
+);
+
+Next Page
+nextPageBtn.addEventListener(
+    "click",
+    () => {
+
+        currentPage++;
+
+        updateAtlas();
+
+    }
+);
+
+Reset
+function resetFilters() {
+
+    searchInput.value = "";
+
+    causeFilter.value = "All";
+
+    skillFilter.value = "All";
+
+    contributionFilter.value = "All";
+
+    currentPage = 1;
+
+    updateAtlas();
+
+}
+
+Initialization
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        loadSettings();
+
+        updateAtlas();
+
+    }
+);
+
+Benefits
+
+This pattern gives you a single source of truth:
+
+User Action
+     ↓
+updateAtlas()
+     ↓
+Filter
+     ↓
+Validate Page
+     ↓
+Render Grid
+     ↓
+Render Pagination
+     ↓
+Update Counter
+     ↓
+Announce Status
+
+
+Whenever you add future features such as:
+
+Location filters
+Map view
+Saved opportunities
+Sorting
+Favorites
+Impact scoring
+
+you only need to hook them into updateAtlas(), keeping the Opportunity Atlas maintainable and scalable.
