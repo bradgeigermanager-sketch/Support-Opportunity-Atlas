@@ -1,0 +1,198 @@
+Yes. A screen-reader-only live status region is important because when filters, pagination, or search results change visually, screen-reader users need to be informed of the update.
+
+1. Add a Hidden Status Region
+
+Place this near the top of the page, preferably after the header:
+
+<div
+    id="atlasStatus"
+    class="sr-only"
+    aria-live="polite"
+    aria-atomic="true"
+>
+    Opportunity Atlas loaded.
+</div>
+
+What this does
+aria-live="polite" announces updates when the user is idle.
+aria-atomic="true" reads the entire message.
+Hidden visually, but available to screen readers.
+2. Ensure .sr-only Exists
+.sr-only{
+
+    position:absolute;
+
+    width:1px;
+
+    height:1px;
+
+    padding:0;
+
+    margin:-1px;
+
+    overflow:hidden;
+
+    clip:rect(0,0,0,0);
+
+    white-space:nowrap;
+
+    border:0;
+
+}
+
+3. Create a Helper Function
+
+Add to your JavaScript:
+
+function updateStatus(message){
+
+    const status =
+        document.getElementById(
+            "atlasStatus"
+        );
+
+    status.textContent = message;
+
+}
+
+4. Announce Search Results
+
+At the end of filterOpportunities():
+
+updateStatus(
+    `${filteredCards.length} opportunities found.`
+);
+
+
+Examples announced:
+
+12 opportunities found.
+
+3 opportunities found.
+
+No opportunities found.
+
+5. Announce Pagination Changes
+
+At the end of renderPage():
+
+const totalPages =
+    Math.max(
+        1,
+        Math.ceil(
+            filteredCards.length /
+            cardsPerPage
+        )
+    );
+
+updateStatus(
+    `Page ${currentPage} of ${totalPages}.`
+);
+
+
+Examples:
+
+Page 2 of 8.
+
+Page 5 of 12.
+
+6. Announce Page Size Changes
+
+Inside the page-size selector event:
+
+document
+.getElementById("pageSize")
+.addEventListener(
+    "change",
+    function(){
+
+        cardsPerPage =
+            Number(this.value);
+
+        localStorage.setItem(
+            "opportunityAtlasPageSize",
+            cardsPerPage
+        );
+
+        currentPage = 1;
+
+        updateStatus(
+            `Showing ${cardsPerPage} opportunities per page.`
+        );
+
+        renderPage();
+
+    }
+);
+
+7. Announce Filter Changes
+
+Example for cause filter:
+
+causeFilter.addEventListener(
+    "change",
+    function(){
+
+        updateStatus(
+            `Cause filter set to ${this.value}.`
+        );
+
+        filterOpportunities();
+
+    }
+);
+
+
+Similarly for:
+
+Skill filter
+Contribution filter
+Location filter (future)
+Impact filter (future)
+8. Announce Reset
+function resetFilters(){
+
+    searchInput.value = "";
+    causeFilter.value = "All";
+    skillFilter.value = "All";
+    contributionFilter.value = "All";
+
+    updateStatus(
+        "All filters reset."
+    );
+
+    filterOpportunities();
+
+}
+
+9. Announce No Results
+
+When no cards match:
+
+if(filteredCards.length === 0){
+
+    updateStatus(
+        "No opportunities match your current filters."
+    );
+
+}
+
+10. Recommended Accessibility Messages
+Opportunity Atlas loaded.
+
+24 opportunities found.
+
+Cause filter set to Education.
+
+Skill filter set to Programming.
+
+Showing 12 opportunities per page.
+
+Page 3 of 7.
+
+All filters reset.
+
+No opportunities match your current filters.
+
+
+This creates a fully accessible feedback system where screen-reader users receive the same information that sighted users get from visual counters, grids, and pagination controls.
