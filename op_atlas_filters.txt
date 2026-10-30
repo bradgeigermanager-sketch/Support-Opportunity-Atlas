@@ -1,0 +1,267 @@
+To make the filters work with the responsive grid, the key is:
+
+Filter the cards themselves, not the grid.
+Keep the grid container visible.
+Hide non-matching cards with display:none.
+Let CSS Grid automatically reflow the remaining cards.
+
+Here's the complete filtering logic that works perfectly with a .opportunity-grid.
+
+HTML Structure
+<div id="resultsCount"></div>
+
+<div class="opportunity-grid">
+
+    <div class="card"
+         data-title="Math Education Mentor"
+         data-cause="Education"
+         data-skills="Teaching Mathematics"
+         data-contribution="Volunteer Mentor">
+
+        <h2>Math Education Mentor</h2>
+
+    </div>
+
+    <div class="card"
+         data-title="Legal Rights Portal"
+         data-cause="Legal Aid"
+         data-skills="Programming Writing"
+         data-contribution="Build Research">
+
+        <h2>Legal Rights Portal</h2>
+
+    </div>
+
+    <div class="card"
+         data-title="Food Bank Data Analyst"
+         data-cause="Food Security"
+         data-skills="Data Analysis Research"
+         data-contribution="Volunteer Research">
+
+        <h2>Food Bank Data Analyst</h2>
+
+    </div>
+
+</div>
+
+Grid CSS
+.opportunity-grid{
+
+    display:grid;
+
+    gap:16px;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(320px,1fr)
+        );
+
+}
+
+Better Filter Function
+const cards =
+document.querySelectorAll(".card");
+
+function filterOpportunities(){
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cause =
+        document
+        .getElementById("cause")
+        .value;
+
+    const skill =
+        document
+        .getElementById("skill")
+        .value;
+
+    const contribution =
+        document
+        .getElementById("contribution")
+        .value;
+
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+
+        const title =
+            card.dataset.title.toLowerCase();
+
+        const cardCause =
+            card.dataset.cause;
+
+        const cardSkills =
+            card.dataset.skills;
+
+        const cardContribution =
+            card.dataset.contribution;
+
+        const searchableText = (
+            title +
+            " " +
+            cardCause +
+            " " +
+            cardSkills +
+            " " +
+            cardContribution
+        ).toLowerCase();
+
+        const searchMatch =
+            search === "" ||
+            searchableText.includes(search);
+
+        const causeMatch =
+            cause === "All" ||
+            cardCause === cause;
+
+        const skillMatch =
+            skill === "All" ||
+            cardSkills.includes(skill);
+
+        const contributionMatch =
+            contribution === "All" ||
+            cardContribution.includes(contribution);
+
+        const visible =
+            searchMatch &&
+            causeMatch &&
+            skillMatch &&
+            contributionMatch;
+
+        if(visible){
+
+            card.style.display = "";
+
+            visibleCount++;
+
+        }
+        else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById(
+        "resultsCount"
+    ).textContent =
+        `${visibleCount} opportunities found`;
+
+}
+
+Connect All Filters
+[
+    "search",
+    "cause",
+    "skill",
+    "contribution"
+].forEach(id => {
+
+    document
+        .getElementById(id)
+        .addEventListener(
+            id === "search"
+            ? "input"
+            : "change",
+            filterOpportunities
+        );
+
+});
+
+Reset Button
+function resetFilters(){
+
+    document.getElementById("search").value = "";
+
+    document.getElementById("cause").value = "All";
+
+    document.getElementById("skill").value = "All";
+
+    document.getElementById("contribution").value = "All";
+
+    filterOpportunities();
+
+}
+
+<button onclick="resetFilters()">
+    Reset Filters
+</button>
+
+Nice Enhancement: "No Results Found"
+
+Add this immediately below the counter:
+
+<div id="noResults" style="display:none;">
+    No opportunities match your search.
+</div>
+
+
+Update the filter function:
+
+document.getElementById(
+    "noResults"
+).style.display =
+    visibleCount === 0
+    ? "block"
+    : "none";
+
+Advanced Opportunity Atlas Filters to Add Next
+Cause
+ ├─ Education
+ ├─ Legal Aid
+ ├─ Health
+ ├─ Environment
+ ├─ Housing
+ └─ Food Security
+
+Skills
+ ├─ Programming
+ ├─ Teaching
+ ├─ Writing
+ ├─ Design
+ ├─ Law
+ ├─ Research
+ ├─ Finance
+ ├─ Translation
+ └─ Leadership
+
+Contribution Type
+ ├─ Donate
+ ├─ Volunteer
+ ├─ Mentor
+ ├─ Build
+ ├─ Research
+ ├─ Advocate
+ ├─ Govern
+ └─ Fundraise
+
+Impact Scale
+ ├─ Individual
+ ├─ Community
+ ├─ Regional
+ ├─ National
+ └─ Global
+
+Time Commitment
+ ├─ 1 Hour
+ ├─ Weekly
+ ├─ Monthly
+ ├─ Project-Based
+ └─ Long-Term
+
+Location
+ ├─ Local
+ ├─ Remote
+ ├─ National
+ └─ International
+
+
+With those filters and the responsive grid, the Atlas starts behaving like a real opportunity-discovery platform rather than a static directory.
