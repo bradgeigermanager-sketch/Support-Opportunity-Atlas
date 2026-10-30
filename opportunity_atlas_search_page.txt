@@ -1,0 +1,298 @@
+Yes. The next step is to make the mockup actually interactive with client-side JavaScript filtering.
+
+Here's an upgraded version with:
+
+✅ Live search
+✅ Cause filter
+✅ Skill filter
+✅ Contribution type filter
+✅ Match counter
+✅ Reset button
+✅ Dynamic filtering without page reload
+Add this JavaScript before </body>
+<script>
+
+const opportunities = document.querySelectorAll(".card");
+
+const searchInput = document.getElementById("search");
+const causeFilter = document.getElementById("cause");
+const skillFilter = document.getElementById("skill");
+const contributionFilter = document.getElementById("contribution");
+
+function filterOpportunities() {
+
+    const search = searchInput.value.toLowerCase();
+    const cause = causeFilter.value;
+    const skill = skillFilter.value;
+    const contribution = contributionFilter.value;
+
+    let visibleCount = 0;
+
+    opportunities.forEach(card => {
+
+        const text =
+            card.dataset.title.toLowerCase() +
+            " " +
+            card.dataset.cause.toLowerCase() +
+            " " +
+            card.dataset.skills.toLowerCase();
+
+        const causeMatch =
+            cause === "All" ||
+            card.dataset.cause === cause;
+
+        const skillMatch =
+            skill === "All" ||
+            card.dataset.skills.includes(skill);
+
+        const contributionMatch =
+            contribution === "All" ||
+            card.dataset.contribution.includes(contribution);
+
+        const searchMatch =
+            text.includes(search);
+
+        if (
+            causeMatch &&
+            skillMatch &&
+            contributionMatch &&
+            searchMatch
+        ) {
+            card.style.display = "block";
+            visibleCount++;
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+    document.getElementById("resultsCount").innerText =
+        visibleCount + " opportunities found";
+}
+
+searchInput.addEventListener("input", filterOpportunities);
+causeFilter.addEventListener("change", filterOpportunities);
+skillFilter.addEventListener("change", filterOpportunities);
+contributionFilter.addEventListener("change", filterOpportunities);
+
+function resetFilters() {
+
+    searchInput.value = "";
+    causeFilter.value = "All";
+    skillFilter.value = "All";
+    contributionFilter.value = "All";
+
+    filterOpportunities();
+}
+
+filterOpportunities();
+
+</script>
+
+Replace Search Controls
+<h3>Search Atlas</h3>
+
+<input
+id="search"
+type="text"
+placeholder="Search opportunities..."
+>
+
+<label>Cause</label>
+
+<select id="cause">
+    <option>All</option>
+    <option>Education</option>
+    <option>Legal Aid</option>
+    <option>Health</option>
+    <option>Environment</option>
+    <option>Food Security</option>
+    <option>Community Development</option>
+</select>
+
+<label>Skill</label>
+
+<select id="skill">
+    <option>All</option>
+    <option>Programming</option>
+    <option>Teaching</option>
+    <option>Writing</option>
+    <option>Research</option>
+    <option>Design</option>
+    <option>Law</option>
+</select>
+
+<label>Contribution Type</label>
+
+<select id="contribution">
+    <option>All</option>
+    <option>Volunteer</option>
+    <option>Mentor</option>
+    <option>Research</option>
+    <option>Build</option>
+    <option>Advocate</option>
+</select>
+
+<br><br>
+
+<button onclick="resetFilters()">
+Reset Filters
+</button>
+
+<p id="resultsCount"></p>
+
+Upgrade Opportunity Cards
+
+Example:
+
+<div
+class="card"
+
+data-title="Math Education Mentor"
+
+data-cause="Education"
+
+data-skills="Teaching Mathematics"
+
+data-contribution="Volunteer Mentor">
+
+<h2>Math Education Mentor</h2>
+
+<p>
+Help students improve math skills through tutoring.
+</p>
+
+</div>
+
+Add More Sample Opportunities
+<div
+class="card"
+
+data-title="Legal Rights Portal"
+
+data-cause="Legal Aid"
+
+data-skills="Programming Writing"
+
+data-contribution="Build Research">
+
+<h2>Legal Rights Portal</h2>
+
+<p>
+Create legal education resources for underserved communities.
+</p>
+
+</div>
+
+<div
+class="card"
+
+data-title="Climate Mapping Project"
+
+data-cause="Environment"
+
+data-skills="Programming GIS Research"
+
+data-contribution="Research Build">
+
+<h2>Climate Mapping Project</h2>
+
+<p>
+Map environmental risks and community resilience indicators.
+</p>
+
+</div>
+
+<div
+class="card"
+
+data-title="Community Literacy Tutor"
+
+data-cause="Education"
+
+data-skills="Teaching Writing"
+
+data-contribution="Volunteer Mentor">
+
+<h2>Community Literacy Tutor</h2>
+
+<p>
+Support adult literacy through one-on-one tutoring.
+</p>
+
+</div>
+
+<div
+class="card"
+
+data-title="Food Bank Data Analyst"
+
+data-cause="Food Security"
+
+data-skills="Research Programming Statistics"
+
+data-contribution="Volunteer Research">
+
+<h2>Food Bank Data Analyst</h2>
+
+<p>
+Analyze usage patterns and improve food distribution.
+</p>
+
+</div>
+
+Future Atlas Features
+Skill Match Engine
+You Have:
+✓ Programming
+✓ Teaching
+✓ Writing
+
+System Finds:
+✓ Legal Rights Portal
+✓ Educational Resource Library
+✓ Scholarship Search Engine
+✓ Community Learning Dashboard
+
+Geographic Search
+Near Me
+State
+Province
+Country
+Global
+Remote Only
+
+Impact Filters
+Children
+Families
+Seniors
+Veterans
+Students
+Refugees
+Indigenous Communities
+Environment
+Animals
+
+Opportunity Types
+One-Time Volunteer
+Recurring Volunteer
+Board Service
+Micro-Project
+Internship
+Career
+Research Project
+Open Source Project
+
+Opportunity Graph
+Skill
+ ↓
+Opportunity
+ ↓
+Organization
+ ↓
+Community
+ ↓
+Impact
+
+
+At that point, the Atlas stops being a nonprofit directory and becomes a true impact search engine.
