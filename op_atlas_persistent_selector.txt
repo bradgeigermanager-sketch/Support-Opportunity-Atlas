@@ -1,0 +1,203 @@
+Perfect. The simplest way to remember the user's page-size preference is to use localStorage, which persists across browser refreshes and future visits.
+
+1. Save the Selection
+
+Update your existing event listener:
+
+document
+.getElementById("pageSize")
+.addEventListener(
+    "change",
+    function(){
+
+        cardsPerPage = Number(this.value);
+
+        // Save preference
+        localStorage.setItem(
+            "opportunityAtlasPageSize",
+            cardsPerPage
+        );
+
+        currentPage = 1;
+
+        renderPage();
+
+    }
+);
+
+2. Load the Saved Preference
+
+Add this near initialization:
+
+function loadPageSizePreference(){
+
+    const saved =
+        localStorage.getItem(
+            "opportunityAtlasPageSize"
+        );
+
+    if(saved){
+
+        return Number(saved);
+
+    }
+
+    return determineDefaultPageSize();
+
+}
+
+
+Replace:
+
+cardsPerPage =
+    determineDefaultPageSize();
+
+
+with:
+
+cardsPerPage =
+    loadPageSizePreference();
+
+3. Update the Dropdown
+
+After loading the value, sync the selector:
+
+document.getElementById(
+    "pageSize"
+).value = cardsPerPage;
+
+4. Handle Invalid Saved Values
+
+If you later change the options, an old value might exist.
+
+function loadPageSizePreference(){
+
+    const allowed =
+        ["6","9","12","24","48","999999"];
+
+    const saved =
+        localStorage.getItem(
+            "opportunityAtlasPageSize"
+        );
+
+    if(
+        saved &&
+        allowed.includes(saved)
+    ){
+        return Number(saved);
+    }
+
+    return determineDefaultPageSize();
+
+}
+
+5. Add a "Remember Settings" Block
+
+Future preferences can use the same pattern:
+
+localStorage.setItem(
+    "opportunityAtlasFilters",
+    JSON.stringify({
+        pageSize: cardsPerPage,
+        cause: causeFilter.value,
+        skill: skillFilter.value,
+        contribution: contributionFilter.value
+    })
+);
+
+
+Then restore them on load.
+
+This gives users a personalized Atlas experience where their preferred page size, filters, and view options automatically return when they revisit the site.
+
+6. Bonus: Remember Multiple Preferences
+
+Create a single settings object:
+
+function saveSettings(){
+
+    const settings = {
+
+        pageSize: cardsPerPage,
+
+        cause:
+            document.getElementById(
+                "cause"
+            ).value,
+
+        skill:
+            document.getElementById(
+                "skill"
+            ).value,
+
+        contribution:
+            document.getElementById(
+                "contribution"
+            ).value
+
+    };
+
+    localStorage.setItem(
+        "opportunityAtlasSettings",
+        JSON.stringify(settings)
+    );
+
+}
+
+
+Load:
+
+function loadSettings(){
+
+    const settings =
+        JSON.parse(
+            localStorage.getItem(
+                "opportunityAtlasSettings"
+            ) || "{}"
+        );
+
+    if(settings.pageSize){
+
+        cardsPerPage =
+            Number(
+                settings.pageSize
+            );
+
+        document.getElementById(
+            "pageSize"
+        ).value =
+            settings.pageSize;
+
+    }
+
+    if(settings.cause){
+
+        document.getElementById(
+            "cause"
+        ).value =
+            settings.cause;
+
+    }
+
+    if(settings.skill){
+
+        document.getElementById(
+            "skill"
+        ).value =
+            settings.skill;
+
+    }
+
+    if(settings.contribution){
+
+        document.getElementById(
+            "contribution"
+        ).value =
+            settings.contribution;
+
+    }
+
+}
+
+
+With this upgrade, the Opportunity Atlas starts behaving like a professional discovery platform: users return and immediately see their preferred page size, filters, and browsing setup without needing to reconfigure anything.
