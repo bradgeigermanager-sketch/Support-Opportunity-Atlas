@@ -1,0 +1,155 @@
+For accessibility, every form control should have:
+
+A visible label (<label>)
+A descriptive hint/help text
+An accessible association using for, id, and aria-describedby
+Improved Page Size Selector
+<div class="page-size-control">
+
+    <label for="pageSize">
+        Opportunities per page
+    </label>
+
+    <p
+        id="pageSizeHint"
+        class="field-hint"
+    >
+        Choose how many opportunities appear on each page.
+        Your selection is saved for future visits.
+    </p>
+
+    <select
+        id="pageSize"
+        aria-describedby="pageSizeHint"
+    >
+        <option value="6">6</option>
+        <option value="9">9</option>
+        <option value="12">12</option>
+        <option value="24">24</option>
+        <option value="48">48</option>
+        <option value="999999">All</option>
+    </select>
+
+</div>
+
+Hint Styling
+.field-hint{
+
+    margin:4px 0 8px;
+
+    font-size:14px;
+
+    color:#666;
+
+    line-height:1.4;
+
+}
+
+Even Better for Screen Readers
+
+Provide additional instructions that screen readers announce automatically:
+
+<select
+    id="pageSize"
+    aria-describedby="
+        pageSizeHint
+        pageSizeSavedHint
+    "
+>
+
+<p
+    id="pageSizeHint"
+    class="field-hint"
+>
+    Choose how many opportunities appear on each page.
+</p>
+
+<p
+    id="pageSizeSavedHint"
+    class="sr-only"
+>
+    Your choice will be remembered the next time
+    you visit Opportunity Atlas.
+</p>
+
+.sr-only{
+
+    position:absolute;
+
+    width:1px;
+
+    height:1px;
+
+    padding:0;
+
+    margin:-1px;
+
+    overflow:hidden;
+
+    clip:rect(0,0,0,0);
+
+    white-space:nowrap;
+
+    border:0;
+
+}
+
+Accessibility Pattern for All Filters
+
+Use the same structure:
+
+<label for="cause">
+    Cause Area
+</label>
+
+<p
+    id="causeHint"
+    class="field-hint"
+>
+    Filter opportunities by the problem they help solve.
+</p>
+
+<select
+    id="cause"
+    aria-describedby="causeHint"
+>
+    ...
+</select>
+
+<label for="skill">
+    Skill
+</label>
+
+<p
+    id="skillHint"
+    class="field-hint"
+>
+    Show opportunities matching a specific skill.
+</p>
+
+<select
+    id="skill"
+    aria-describedby="skillHint"
+>
+    ...
+</select>
+
+<label for="search">
+    Search Opportunities
+</label>
+
+<p
+    id="searchHint"
+    class="field-hint"
+>
+    Search by opportunity title, cause, skill, or contribution type.
+</p>
+
+<input
+    id="search"
+    type="text"
+    aria-describedby="searchHint"
+>
+
+
+This pattern makes the Opportunity Atlas much more accessible for screen-reader users, keyboard users, and people who benefit from clear instructions.
