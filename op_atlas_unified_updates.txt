@@ -1,0 +1,217 @@
+Yes. A nice refinement is to combine rendering and status updates into a single render cycle. The screen-reader announcement is really part of rendering the current application state, not a separate concern.
+
+Instead of:
+
+updateAtlas()
+    → renderPage()
+    → buildPageNumbers()
+    → updateResultsCount()
+    → updateLiveStatus()
+
+
+use:
+
+updateAtlas()
+    → renderAtlas()
+
+Unified Render Function
+function renderAtlas() {
+
+    const totalResults =
+        filteredCards.length;
+
+    const totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                totalResults /
+                cardsPerPage
+            )
+        );
+
+    // Keep page valid
+
+    currentPage = Math.min(
+        currentPage,
+        totalPages
+    );
+
+    currentPage = Math.max(
+        currentPage,
+        1
+    );
+
+    // Update cards
+
+    cards.forEach(card => {
+
+        card.style.display = "none";
+
+    });
+
+    const start =
+        (currentPage - 1) *
+        cardsPerPage;
+
+    const end =
+        start +
+        cardsPerPage;
+
+    filteredCards
+        .slice(start, end)
+        .forEach(card => {
+
+            card.style.display = "";
+
+        });
+
+    // Update visible counter
+
+    updateResultsCount(
+        totalResults
+    );
+
+    // Update page controls
+
+    buildPageNumbers(
+        totalPages
+    );
+
+    updatePaginationButtons(
+        totalPages
+    );
+
+    // Update accessibility status
+
+    updateRenderStatus(
+        totalResults,
+        totalPages,
+        start,
+        end
+    );
+
+}
+
+Render Status Function
+
+Notice that it receives information from the render cycle rather than recalculating everything.
+
+function updateRenderStatus(
+    totalResults,
+    totalPages,
+    start,
+    end
+) {
+
+    const status =
+        document.getElementById(
+            "atlasStatus"
+        );
+
+    let message;
+
+    if(totalResults === 0){
+
+        message =
+            "No opportunities match your current filters.";
+
+    }
+    else{
+
+        const visibleStart =
+            start + 1;
+
+        const visibleEnd =
+            Math.min(
+                end,
+                totalResults
+            );
+
+        message =
+            `Showing opportunities ` +
+            `${visibleStart} through ${visibleEnd} ` +
+            `of ${totalResults}. ` +
+            `Page ${currentPage} of ${totalPages}.`;
+
+    }
+
+    status.textContent = "";
+
+    requestAnimationFrame(() => {
+
+        status.textContent =
+            message;
+
+    });
+
+}
+
+Reduced Update Pipeline
+
+Now the application state is simpler:
+
+function updateAtlas(){
+
+    applyFilters();
+
+    renderAtlas();
+
+}
+
+
+That's it.
+
+Even Better: Single State Object
+
+As the Atlas grows, store everything in one place.
+
+const atlasState = {
+
+    currentPage: 1,
+
+    cardsPerPage: 12,
+
+    filteredCards: [],
+
+    totalResults: 0,
+
+    totalPages: 0
+
+};
+
+
+Then:
+
+function renderAtlas(){
+
+    atlasState.totalResults =
+        atlasState.filteredCards.length;
+
+    atlasState.totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                atlasState.totalResults /
+                atlasState.cardsPerPage
+            )
+        );
+
+    ...
+
+}
+
+Ideal Architecture
+User Action
+     ↓
+updateAtlas()
+     ↓
+applyFilters()
+     ↓
+renderAtlas()
+        ├─ Render Grid
+        ├─ Render Counter
+        ├─ Render Pagination
+        └─ Render Accessibility Status
+
+
+This keeps all UI updates synchronized and guarantees that the screen-reader announcement always describes exactly what was rendered on the screen.
