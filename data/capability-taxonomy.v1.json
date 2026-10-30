@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "dataset_id": "capability-taxonomy",
+  "version": "1.0.0",
+  "status": "proposed",
+  "description": "Controlled vocabulary for describing resources and conditions that enable or constrain participation. Terms are not credentials or verified claims.",
+  "families": [
+    {
+      "id": "cap.skill",
+      "label": "Skills and competencies",
+      "terms": [
+        "communication",
+        "writing",
+        "translation",
+        "teaching",
+        "research",
+        "data_analysis",
+        "programming",
+        "engineering",
+        "repair",
+        "project_management",
+        "facilitation",
+        "caregiving",
+        "logistics",
+        "design",
+        "governance"
+      ]
+    },
+    {
+      "id": "cap.qualification",
+      "label": "Qualifications and authorization",
+      "terms": [
+        "professional_license",
+        "trade_certification",
+        "academic_credential",
+        "safety_training",
+        "background_clearance",
+        "research_ethics_training",
+        "equipment_authorization",
+        "driver_authorization"
+      ]
+    },
+    {
+      "id": "cap.resource",
+      "label": "Material and financial resources",
+      "terms": [
+        "funding",
+        "goods",
+        "tools",
+        "equipment",
+        "vehicle",
+        "workspace",
+        "land",
+        "facility",
+        "computing",
+        "storage",
+        "connectivity",
+        "materials",
+        "inventory"
+      ]
+    },
+    {
+      "id": "cap.time",
+      "label": "Time and scheduling",
+      "terms": [
+        "weekly_hours",
+        "one_time_availability",
+        "recurring_availability",
+        "deadline_capacity",
+        "shift_availability",
+        "seasonal_availability"
+      ]
+    },
+    {
+      "id": "cap.access",
+      "label": "Access and permissions",
+      "terms": [
+        "facility_access",
+        "data_access",
+        "network_access",
+        "intellectual_property_license",
+        "land_use_permission",
+        "system_account",
+        "organizational_authority"
+      ]
+    },
+    {
+      "id": "cap.location",
+      "label": "Geographic and mobility conditions",
+      "terms": [
+        "local_presence",
+        "travel_capacity",
+        "remote_access",
+        "accessible_transport",
+        "relocation_capacity",
+        "service_area"
+      ]
+    },
+    {
+      "id": "cap.experience",
+      "label": "Experience and track record",
+      "terms": [
+        "prior_project",
+        "domain_experience",
+        "lived_experience",
+        "portfolio",
+        "reference",
+        "demonstrated_outcome"
+      ]
+    },
+    {
+      "id": "cap.relationship",
+      "label": "Organizational and social capacity",
+      "terms": [
+        "team_capacity",
+        "partnership_network",
+        "membership",
+        "volunteer_pool",
+        "governance_mandate",
+        "referral_relationship"
+      ]
+    },
+    {
+      "id": "cap.preference",
+      "label": "Participation preferences",
+      "terms": [
+        "paid_only",
+        "volunteer_preferred",
+        "remote_preferred",
+        "in_person_preferred",
+        "learning_goal",
+        "cause_interest",
+        "accessibility_requirement",
+        "language_preference"
+      ]
+    }
+  ]
+}
