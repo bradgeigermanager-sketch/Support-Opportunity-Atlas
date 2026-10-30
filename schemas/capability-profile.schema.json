@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bradgeigermanager-sketch.github.io/Support-Opportunity-Atlas/schemas/capability-profile.schema.json",
+  "title": "Capability Profile",
+  "description": "A privacy-conscious, versioned description of capabilities, resources, availability, and participation constraints. Not an identity or credential verification record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "version",
+    "profile_kind",
+    "capabilities",
+    "constraints",
+    "privacy"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "profile_kind": {
+      "enum": [
+        "individual",
+        "team",
+        "organization",
+        "community",
+        "asset",
+        "facility",
+        "network"
+      ]
+    },
+    "display_label": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "capability_id",
+          "capability_family",
+          "level",
+          "evidence_state"
+        ],
+        "properties": {
+          "capability_id": {
+            "type": "string",
+            "minLength": 3
+          },
+          "capability_family": {
+            "type": "string"
+          },
+          "level": {
+            "enum": [
+              "awareness",
+              "basic",
+              "working",
+              "advanced",
+              "expert",
+              "not_applicable",
+              "unknown"
+            ]
+          },
+          "evidence_state": {
+            "enum": [
+              "self_reported",
+              "source_reported",
+              "documented",
+              "independently_verified",
+              "disputed",
+              "unknown"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "valid_from": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "valid_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "quantity": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1000
+          }
+        }
+      }
+    },
+    "availability": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "availability_kind",
+          "status"
+        ],
+        "properties": {
+          "availability_kind": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "available",
+              "limited",
+              "unavailable",
+              "unknown"
+            ]
+          },
+          "start": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "end": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "quantity": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "constraint_type",
+          "value"
+        ],
+        "properties": {
+          "constraint_type": {
+            "enum": [
+              "geography",
+              "schedule",
+              "compensation",
+              "eligibility",
+              "authorization",
+              "safety",
+              "accessibility",
+              "privacy",
+              "capacity",
+              "language",
+              "delivery_mode",
+              "other"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "hard_constraint": {
+            "type": "boolean"
+          },
+          "source_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "preferences": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "service_areas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication_level",
+        "personal_data_minimized"
+      ],
+      "properties": {
+        "publication_level": {
+          "enum": [
+            "private_matching",
+            "shared_with_consent",
+            "public_summary"
+          ]
+        },
+        "personal_data_minimized": {
+          "type": "boolean"
+        },
+        "consent_record_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "last_reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}
