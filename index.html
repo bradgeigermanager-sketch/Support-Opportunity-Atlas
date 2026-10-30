@@ -3,105 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Opportunity Atlas connects needs, skills, resources, organizations, and pathways to measurable impact.">
+  <meta name="description" content="Explore opportunity types, contribution pathways, and source-aware listings in the Support Opportunity Atlas.">
   <meta name="theme-color" content="#142b3b">
   <title>Support Opportunity Atlas</title>
   <link rel="stylesheet" href="site/atlas.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="Opportunity Atlas home">
-      <span class="brand-mark">OA</span>
-      <span><strong>Opportunity Atlas</strong><small>Find where contribution meets need</small></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#explore">Explore</a><a href="#model">How it works</a><a href="#framework">Framework</a><a href="#repository">Repository</a>
-    </nav>
+    <a class="brand" href="#home" aria-label="Opportunity Atlas home"><span class="brand-mark">OA</span><span><strong>Opportunity Atlas</strong><small>Find where contribution meets need</small></span></a>
+    <nav aria-label="Main navigation"><a href="#explore">Explore</a><a href="#catalog">Opportunity types</a><a href="#model">How it works</a><a href="#repository">Repository</a></nav>
   </header>
-
   <main id="home">
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">A map of needs, capabilities, and action</p>
-        <h1>Turn what is needed into a pathway for meaningful contribution.</h1>
-        <p class="hero-lede">Explore the connections between problems, opportunities, skills, resources, organizations, and impact — from more than one starting point.</p>
-        <a class="primary-link" href="#explore">Explore the Atlas <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="hero-diagram" aria-label="Cause leads to need, opportunity, action, and impact">
-        <div class="diagram-node">CAUSE</div><span>↓</span>
-        <div class="diagram-node">NEED / PROBLEM</div><span>↓</span>
-        <div class="diagram-node accent">OPPORTUNITY</div><span>↓</span>
-        <div class="diagram-node">CONTRIBUTION ACTION</div><span>↓</span>
-        <div class="diagram-node">OUTPUT · OUTCOME · IMPACT</div>
-      </div>
+      <div class="hero-copy"><p class="eyebrow">A map of needs, capabilities, and action</p><h1>Turn what is needed into a pathway for meaningful contribution.</h1><p class="hero-lede">Explore opportunities to contribute time, skills, funding, goods, facilities, knowledge, and capacity — across many domains and participation models.</p><a class="primary-link" href="#explore">Explore the Atlas <span aria-hidden="true">→</span></a></div>
+      <div class="hero-diagram" aria-label="Cause leads to need, opportunity, action, and impact"><div class="diagram-node">CAUSE</div><span>↓</span><div class="diagram-node">NEED / PROBLEM</div><span>↓</span><div class="diagram-node accent">OPPORTUNITY</div><span>↓</span><div class="diagram-node">CONTRIBUTION ACTION</div><span>↓</span><div class="diagram-node">OUTPUT · OUTCOME · IMPACT</div></div>
     </section>
-
     <section class="section" id="explore">
-      <div class="section-heading">
-        <p class="eyebrow">Discovery workspace · demonstration</p>
-        <h2>Explore the opportunity landscape</h2>
-        <p>Search the sample concepts below. The records are illustrative and are not live or verified solicitations.</p>
-      </div>
+      <div class="section-heading"><p class="eyebrow">Discovery workspace · illustrative dataset</p><h2>Explore the opportunity landscape</h2><p>Search and combine filters across opportunity type, domain, contribution, delivery, and availability. The current cards are synthetic examples of listing patterns, not live solicitations.</p></div>
       <div class="search-panel">
-        <label for="atlas-search">Search causes, needs, skills, actions, or resources</label>
-        <div class="search-row"><input id="atlas-search" type="search" placeholder="Try “teaching”, “food”, or “programming”"><button id="clear-search" type="button">Clear</button></div>
+        <label for="atlas-search">Search opportunities</label><p class="field-hint" id="search-hint">Search titles, descriptions, skills, organizations, type labels, and resource needs.</p>
+        <div class="search-row"><input id="atlas-search" type="search" placeholder="Try “grant”, “translation”, “environment”" aria-describedby="search-hint"><button id="clear-search" type="button">Clear filters</button></div>
         <div class="filter-row">
-          <label>Domain <select id="domain-filter"><option value="">All domains</option><option>Education</option><option>Community</option><option>Environment</option><option>Technology</option></select></label>
-          <label>Contribution <select id="action-filter"><option value="">All actions</option><option>Teach</option><option>Build</option><option>Research</option><option>Organize</option></select></label>
+          <label for="type-filter">Opportunity type<p class="field-hint" id="type-hint">Filter by the mechanism or form of participation.</p><select id="type-filter" aria-describedby="type-hint"><option value="">All opportunity types</option></select></label>
+          <label for="domain-filter">Domain<p class="field-hint" id="domain-hint">Filter by the subject area or field.</p><select id="domain-filter" aria-describedby="domain-hint"><option value="">All domains</option></select></label>
+          <label for="action-filter">Contribution<p class="field-hint" id="action-hint">Filter by what a participant does.</p><select id="action-filter" aria-describedby="action-hint"><option value="">All contributions</option></select></label>
+          <label for="delivery-filter">Delivery<p class="field-hint" id="delivery-hint">Choose where or how participation happens.</p><select id="delivery-filter" aria-describedby="delivery-hint"><option value="">All delivery modes</option><option value="In person">In person</option><option value="Remote">Remote</option><option value="Hybrid">Hybrid</option><option value="Place-based">Place-based</option></select></label>
+          <label for="availability-filter">Availability<p class="field-hint" id="availability-hint">Unknown is not the same as closed or unavailable.</p><select id="availability-filter" aria-describedby="availability-hint"><option value="">All availability states</option><option>Open</option><option>Waitlist</option><option>Limited capacity</option><option>Not accepting</option><option>Unknown</option></select></label>
         </div>
-        <p class="result-count" id="result-count" aria-live="polite"></p>
-        <div class="result-grid" id="result-grid"></div>
-        <p class="empty-state" id="empty-state" hidden>No sample concepts match those filters. Try a broader search.</p>
+        <div class="results-toolbar"><p class="result-count" id="result-count" aria-live="polite"></p><label class="page-size-control" for="page-size">Per page<select id="page-size" aria-describedby="page-size-hint"><option value="6">6</option><option value="9">9</option><option value="12">12</option><option value="24">24</option></select><span class="field-hint" id="page-size-hint">Choose how many cards to display.</span></label></div>
+        <div class="result-grid" id="result-grid"></div><p class="empty-state" id="empty-state" hidden>No opportunity patterns match these filters. Try broadening your search.</p>
+        <nav class="pagination-container" id="pagination" aria-label="Opportunity result pages"><button id="prev-page" type="button">← Previous</button><span id="page-info" aria-live="polite"></span><div id="page-numbers" class="page-numbers"></div><button id="next-page" type="button">Next →</button><button id="load-more" type="button">Load more opportunities</button></nav>
+      </div>
+      <p class="notice"><strong>Listing integrity:</strong> these are illustrative patterns. No current opening, publisher, deadline, compensation, eligibility, or availability is being asserted. Live listings will need source observations and verification.</p>
+    </section>
+    <section class="section model-section" id="catalog"><div class="section-heading"><p class="eyebrow">Controlled vocabulary</p><h2>Opportunity types span many ways to participate</h2><p>Type describes the mechanism of an opportunity. Domain, action, relationship, delivery, and availability remain separate classification dimensions.</p></div>
+      <div class="type-overview">
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Direct assistance</strong><span>Food, housing, transport, legal and essential services</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Volunteering</strong><span>General, skilled, event, board, mutual aid</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Work and enterprise</strong><span>Jobs, contracts, apprenticeships, consulting</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Learning</strong><span>Courses, scholarships, fellowships, mentoring</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Funding and giving</strong><span>Grants, prizes, donations, in-kind resources</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Research and technology</strong><span>Studies, data, software, open science</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Environment and care</strong><span>Conservation, health, disability, family support</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Civic and cultural</strong><span>Consultation, public calls, arts, heritage</span></a>
+        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md"><strong>Infrastructure and networks</strong><span>Housing, facilities, partnerships, shared capacity</span></a>
       </div>
     </section>
-
-    <section class="section model-section" id="model">
-      <div class="section-heading">
-        <p class="eyebrow">A connected system</p>
-        <h2>More than an organization directory</h2>
-        <p>Start with a problem, a skill, a resource, a place, or an organization. The Atlas connects those views through shared identifiers and typed relationships.</p>
-      </div>
-      <div class="pathway-grid">
-        <article><span class="card-number">01</span><h3>Understand the need</h3><p>Describe the condition, affected context, evidence, urgency, and geographic or temporal scope.</p></article>
-        <article><span class="card-number">02</span><h3>Define the opportunity</h3><p>Translate a need into bounded actions, requirements, responsibilities, and expected outputs.</p></article>
-        <article><span class="card-number">03</span><h3>Match capabilities</h3><p>Compare skills, qualifications, time, resources, location, and preferences with transparent criteria.</p></article>
-        <article><span class="card-number">04</span><h3>Measure what changes</h3><p>Track inputs, activities, outputs, outcomes, and impact without confusing one for another.</p></article>
-      </div>
+    <section class="section model-section" id="model"><div class="section-heading"><p class="eyebrow">A connected system</p><h2>More than an organization directory</h2><p>Start with a problem, a skill, a resource, a place, or an organization. The Atlas connects those views through shared identifiers and typed relationships.</p></div>
+      <div class="pathway-grid"><article><span class="card-number">01</span><h3>Understand the need</h3><p>Describe the condition, affected context, evidence, urgency, and geographic or temporal scope.</p></article><article><span class="card-number">02</span><h3>Define the opportunity</h3><p>Translate a need into bounded actions, requirements, responsibilities, and expected outputs.</p></article><article><span class="card-number">03</span><h3>Match capabilities</h3><p>Compare skills, qualifications, time, resources, location, and preferences with transparent criteria.</p></article><article><span class="card-number">04</span><h3>Measure what changes</h3><p>Track inputs, activities, outputs, outcomes, and impact without confusing one for another.</p></article></div>
     </section>
-
-    <section class="section framework-section" id="framework">
-      <div class="section-heading">
-        <p class="eyebrow">Version 2.0 architecture</p>
-        <h2>Built for evidence, reuse, and continuous improvement</h2>
-      </div>
-      <div class="framework-list">
-        <div><strong>Ontology</strong><span>Shared entities, controlled terms, and typed relationships.</span></div>
-        <div><strong>Provenance</strong><span>Source traceability, evidence states, confidence, and review history.</span></div>
-        <div><strong>Governance</strong><span>Separate need verification from opportunity availability and publication.</span></div>
-        <div><strong>Matching</strong><span>Explainable compatibility with explicit constraints and unknowns.</span></div>
-        <div><strong>Impact</strong><span>Baselines, indicators, outputs, outcomes, and attribution limits.</span></div>
-        <div><strong>Interoperability</strong><span>Versioned JSON schemas and a relational-plus-JSONB data model.</span></div>
-      </div>
-      <p class="notice"><strong>Evidence principle:</strong> a reported need, a corroborated need, a verified need, and an actively solicited opportunity are different states. The Atlas preserves those distinctions.</p>
-    </section>
-
-    <section class="section repository-section" id="repository">
-      <div class="section-heading">
-        <p class="eyebrow">Open specification</p>
-        <h2>Explore the project files</h2>
-        <p>The original v1.0 concept is preserved. The v2.0 documents expand it into maintainable specifications and implementation artifacts.</p>
-      </div>
-      <div class="repo-links">
-        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/opportunity_atlas_1point0_overview.txt">Original v1.0 overview ↗</a>
-        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/architecture/system-architecture.md">System architecture ↗</a>
-        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/ontology/core-ontology.md">Core ontology ↗</a>
-        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/schemas/opportunity.schema.json">Opportunity JSON Schema ↗</a>
-        <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas">GitHub repository ↗</a>
-      </div>
-    </section>
+    <section class="section framework-section" id="framework"><div class="section-heading"><p class="eyebrow">Version 2.0 architecture</p><h2>Built for evidence, reuse, and continuous improvement</h2></div><div class="framework-list"><div><strong>Ontology</strong><span>Shared entities, controlled terms, and typed relationships.</span></div><div><strong>Provenance</strong><span>Source traceability, evidence states, confidence, and review history.</span></div><div><strong>Governance</strong><span>Separate need verification from opportunity availability and publication.</span></div><div><strong>Matching</strong><span>Explainable compatibility with explicit constraints and unknowns.</span></div><div><strong>Impact</strong><span>Baselines, indicators, outputs, outcomes, and attribution limits.</span></div><div><strong>Interoperability</strong><span>Versioned JSON schemas and a relational-plus-JSONB data model.</span></div></div><p class="notice"><strong>Evidence principle:</strong> a reported need, a corroborated need, a verified need, and an actively solicited opportunity are different states. The Atlas preserves those distinctions.</p></section>
+    <section class="section repository-section" id="repository"><div class="section-heading"><p class="eyebrow">Open specification</p><h2>Explore the project files</h2><p>The original v1.0 concept is preserved. The v2.0 documents expand it into maintainable specifications and implementation artifacts.</p></div><div class="repo-links">
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-type-catalog.md">Opportunity type catalog ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/catalog/opportunity-listing-patterns.md">Listing patterns ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/registry/opportunity-listings-registry.md">Listings registry ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/docs/registry/source-registry-and-ingestion.md">Source registry and ingestion ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/schemas/listing-registry-record.schema.json">Listing record schema ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/schemas/opportunity-source.schema.json">Source schema ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas/blob/main/opportunity_atlas_1point0_overview.txt">Original v1.0 overview ↗</a>
+      <a href="https://github.com/bradgeigermanager-sketch/Support-Opportunity-Atlas">GitHub repository ↗</a>
+    </div></section>
   </main>
-
   <footer><span>Support Opportunity Atlas · Version 2.0 foundation</span><span>Evidence-aware · Explainable · Interoperable</span></footer>
   <script src="site/atlas.js"></script>
-</body>
-</html>
+</body></html>
