@@ -20,13 +20,14 @@ The v1.0 overview is retained as the historical conceptual baseline. The v2.0 do
 - `docs/registry/` — source registry, listing lifecycle, ingestion, freshness, and duplicate resolution.
 - `docs/governance/` — need/opportunity states and publication safeguards.
 - `docs/procedures/` — discovery and validation procedure.
-- `docs/matching/` — capability-to-opportunity matching model.
+- `docs/matching/` — capability taxonomy, capability-to-opportunity matching, requirements, and explainable match outcomes.
 - `docs/evidence/` — provenance, verification, confidence, and evidence.
 - `docs/quality/` — quality dimensions, decision safeguards, review, and correction procedures.
 - `docs/impact/` — impact measurement and attribution.
 - `docs/data-model/` — relational and JSONB persistence model.
-- `schemas/` — machine-readable JSON Schema contracts for opportunities, listing registry records, sources, opportunity types, and quality assessments.
-- `examples/` — clearly labelled illustrative opportunity and source registry records.
+- `schemas/` — machine-readable JSON Schema contracts for opportunities, listing registry records, sources, opportunity types, capability profiles, and quality assessments.
+- `examples/` — clearly labelled illustrative opportunity, source registry, and capability profile records.
+- `data/` — versioned machine-readable controlled vocabularies and seed datasets.
 - `site/` — site-specific supporting assets.
 - `.github/workflows/pages.yml` — GitHub Pages deployment workflow.
 
