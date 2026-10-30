@@ -1,40 +1,72 @@
-const sampleConcepts = [
-  {title:"Community mathematics tutoring",domain:"Education",action:"Teach",description:"An illustrative pathway for volunteers to support mathematics practice and learner confidence.",skills:"teaching mathematics communication mentoring",resources:"time learning materials",tags:"numeracy students tutoring education",status:"Illustrative concept"},
-  {title:"Accessible learning resource review",domain:"Education",action:"Research",description:"A hypothetical review of learning materials for clarity, accessibility, and practical usefulness.",skills:"research writing accessibility curriculum",resources:"time subject knowledge",tags:"education curriculum accessibility",status:"Illustrative concept"},
-  {title:"Community garden coordination",domain:"Community",action:"Organize",description:"A sample coordination model connecting local space, volunteers, tools, and shared growing activities.",skills:"organization communication gardening",resources:"space equipment time",tags:"food community garden sustainability",status:"Illustrative concept"},
-  {title:"Open environmental data dashboard",domain:"Environment",action:"Build",description:"A hypothetical software contribution that organizes public environmental measurements into an accessible dashboard.",skills:"programming data analysis design",resources:"technology data time",tags:"environment climate data science software",status:"Illustrative concept"},
-  {title:"Volunteer scheduling tool",domain:"Technology",action:"Build",description:"An example project concept for coordinating volunteer availability and program schedules.",skills:"programming product design project management",resources:"technology time network",tags:"community nonprofit volunteer software",status:"Illustrative concept"},
-  {title:"Community resource translation",domain:"Community",action:"Teach",description:"A sample contribution pathway for translating public-facing resource guides into additional languages.",skills:"translation writing review",resources:"knowledge time",tags:"community language access newcomer",status:"Illustrative concept"}
+const opportunityPatterns = [
+ {title:"Community food distribution volunteer",type:"General volunteering",typeId:"opp.volunteer.general",domain:"Food systems",action:"Deliver",delivery:"In person",availability:"Unknown",relationship:"Volunteer",description:"Illustrative shift pattern supporting food sorting, packing, or distribution through a community organization.",skills:"teamwork logistics food handling communication",resources:"time supplies transport",tags:"food pantry meal community direct assistance",pattern:"listing.volunteer_shift"},
+ {title:"Small grant for neighborhood resilience",type:"Grant",typeId:"opp.fund.grant",domain:"Climate",action:"Fund",delivery:"Remote",availability:"Unknown",relationship:"Grantee",description:"Illustrative funding call pattern for community-led heat, flood, or resilience projects.",skills:"project planning budgeting community engagement",resources:"funding expertise",tags:"grant microgrant climate adaptation funding",pattern:"listing.cash_funding"},
+ {title:"Accessible learning resource reviewer",type:"Skilled volunteering",typeId:"opp.volunteer.skilled",domain:"Education",action:"Review",delivery:"Remote",availability:"Unknown",relationship:"Volunteer",description:"Hypothetical review contribution assessing clarity, accessibility, and practical usefulness of learning materials.",skills:"writing accessibility curriculum research",resources:"time subject knowledge",tags:"education curriculum universal design",pattern:"listing.skilled_service"},
+ {title:"Community stream monitoring project",type:"Community science",typeId:"opp.volunteer.community_science",domain:"Environment",action:"Monitor",delivery:"Place-based",availability:"Unknown",relationship:"Volunteer",description:"Synthetic project pattern for collecting structured observations about local waterway conditions.",skills:"observation sampling data recording",resources:"time field equipment",tags:"water conservation biodiversity research",pattern:"listing.community_project"},
+ {title:"Paid building energy apprenticeship",type:"Apprenticeship",typeId:"opp.work.apprenticeship",domain:"Energy",action:"Learn",delivery:"In person",availability:"Unknown",relationship:"Learner",description:"Illustrative structured work-based learning pathway in building energy systems; pay and terms would require confirmation.",skills:"mechanical aptitude safety mathematics",resources:"supervision tools training",tags:"employment workforce training energy efficiency",pattern:"listing.training_cohort"},
+ {title:"Public-service information translation",type:"Remote volunteering",typeId:"opp.volunteer.remote",domain:"Social services",action:"Translate",delivery:"Remote",availability:"Unknown",relationship:"Volunteer",description:"Example contribution pattern translating and reviewing public-facing service information for language access.",skills:"translation editing plain language",resources:"language expertise time",tags:"language access newcomer public information",pattern:"listing.skilled_service"},
+ {title:"Shared laboratory instrument access",type:"Instrument and lab access",typeId:"opp.research.instrument",domain:"Science",action:"Research",delivery:"In person",availability:"Unknown",relationship:"Partner",description:"Illustrative shared-facility access pattern with operator support, training, booking, and safety requirements.",skills:"laboratory methods instrument operation",resources:"facility equipment",tags:"research science laboratory facility",pattern:"listing.facility_access"},
+ {title:"Open-source civic technology contribution",type:"Software contribution",typeId:"opp.tech.software",domain:"Technology",action:"Build",delivery:"Remote",availability:"Unknown",relationship:"Volunteer",description:"Hypothetical software contribution to improve access to public information or community services.",skills:"programming testing documentation design",resources:"technology time",tags:"open source civic digital software",pattern:"listing.skilled_service"},
+ {title:"Scholarship for technical education",type:"Scholarship",typeId:"opp.learn.scholarship",domain:"Education",action:"Learn",delivery:"Hybrid",availability:"Unknown",relationship:"Learner",description:"Illustrative education-award pattern; eligibility, award value, and application dates would need source verification.",skills:"academic preparation application writing",resources:"tuition financial support",tags:"scholarship tuition training fellowship",pattern:"listing.scholarship"},
+ {title:"Community garden coordination",type:"Community gardening",typeId:"opp.env.garden",domain:"Agriculture",action:"Organize",delivery:"In person",availability:"Unknown",relationship:"Volunteer",description:"Sample coordination pathway connecting shared space, volunteers, tools, and growing activities.",skills:"organization gardening communication",resources:"space tools seeds time",tags:"food security sustainability garden",pattern:"listing.community_project"},
+ {title:"Public consultation on transportation plan",type:"Public consultation",typeId:"opp.civic.public_comment",domain:"Transportation",action:"Advocate",delivery:"Hybrid",availability:"Unknown",relationship:"Public participant",description:"Example public-input pathway for reviewing and commenting on a proposed transportation plan.",skills:"community knowledge writing public policy",resources:"time lived experience",tags:"civic government public comment planning",pattern:"listing.public_consultation"},
+ {title:"Emergency shelter supply request",type:"Requested goods",typeId:"opp.give.goods",domain:"Housing",action:"Donate",delivery:"Place-based",availability:"Unknown",relationship:"Donor",description:"Illustrative request pattern for specified, needed supplies routed through an accountable coordinating organization.",skills:"procurement logistics",resources:"goods transport",tags:"shelter disaster supplies donation",pattern:"listing.goods_request"},
+ {title:"Research study participant recruitment",type:"Research participation",typeId:"opp.research.study",domain:"Health",action:"Participate",delivery:"Hybrid",availability:"Unknown",relationship:"Public participant",description:"Synthetic study-participation pattern; consent, ethics review, eligibility, privacy, and participant burden must be explicit.",skills:"consent review study participation",resources:"time participant data",tags:"research study health ethics",pattern:"listing.research_participation"},
+ {title:"Community facility accessibility retrofit",type:"Accessibility retrofit",typeId:"opp.build.accessibility",domain:"Infrastructure",action:"Build",delivery:"In person",availability:"Unknown",relationship:"Contractor",description:"Illustrative project pattern for improving access to a public or community facility.",skills:"construction design accessibility project management",resources:"materials equipment funding",tags:"disability access building construction",pattern:"listing.community_project"},
+ {title:"Nonprofit board and committee service",type:"Board and committee service",typeId:"opp.volunteer.board",domain:"Community development",action:"Govern",delivery:"Hybrid",availability:"Unknown",relationship:"Volunteer",description:"Example governance participation pattern with defined responsibilities, terms, and conflict-of-interest safeguards.",skills:"governance finance strategy oversight",resources:"expertise time",tags:"nonprofit leadership board advisory",pattern:"listing.skilled_service"},
+ {title:"Procurement call for local suppliers",type:"Procurement opportunity",typeId:"opp.market.procurement",domain:"Economic development",action:"Provide",delivery:"Place-based",availability:"Unknown",relationship:"Contractor",description:"Illustrative tender pattern requiring a defined scope, eligibility, submission instructions, and contract terms.",skills:"supplier management pricing compliance",resources:"goods services capacity",tags:"procurement tender supplier business",pattern:"listing.contract_bid"},
+ {title:"Mentorship for early-career learners",type:"Mentorship placement",typeId:"opp.learn.mentorship",domain:"Education",action:"Mentor",delivery:"Remote",availability:"Unknown",relationship:"Volunteer",description:"Hypothetical mentor-matching pattern with goals, cadence, screening, boundaries, and duration.",skills:"coaching communication subject expertise",resources:"time experience",tags:"mentoring career development education",pattern:"listing.mentorship"},
+ {title:"Community heat-response partnership",type:"Partnership formation",typeId:"opp.network.partnership",domain:"Climate",action:"Coordinate",delivery:"Hybrid",availability:"Unknown",relationship:"Partner",description:"Illustrative partner call to coordinate cooling access, outreach, and heat-risk response capacity.",skills:"coordination public health outreach",resources:"facilities staff communication",tags:"climate heat resilience community network",pattern:"listing.partnership_call"}
 ];
 const searchInput=document.getElementById("atlas-search");
-const domainFilter=document.getElementById("domain-filter");
-const actionFilter=document.getElementById("action-filter");
-const grid=document.getElementById("result-grid");
-const count=document.getElementById("result-count");
-const empty=document.getElementById("empty-state");
-function render(){
-  const q=searchInput.value.trim().toLowerCase();
-  const domain=domainFilter.value;
-  const action=actionFilter.value;
-  const matches=sampleConcepts.filter(item=>{
-    const haystack=[item.title,item.domain,item.action,item.description,item.skills,item.resources,item.tags].join(" ").toLowerCase();
-    return (!q||haystack.includes(q))&&(!domain||item.domain===domain)&&(!action||item.action===action);
-  });
-  count.textContent=matches.length+" illustrative concept"+(matches.length===1?"":"s")+" shown";
-  grid.replaceChildren();
-  for(const item of matches){
-    const card=document.createElement("article");
-    card.className="sample-card";
-    const tag=document.createElement("span");tag.className="tag";tag.textContent=item.domain+" · "+item.action;
-    const title=document.createElement("h3");title.textContent=item.title;
-    const desc=document.createElement("p");desc.textContent=item.description;
-    const meta=document.createElement("div");meta.className="meta";meta.textContent=item.status+" · Skills: "+item.skills;
-    card.append(tag,title,desc,meta);grid.append(card);
-  }
-  empty.hidden=matches.length!==0;
+const filters={type:document.getElementById("type-filter"),domain:document.getElementById("domain-filter"),action:document.getElementById("action-filter"),delivery:document.getElementById("delivery-filter"),availability:document.getElementById("availability-filter")};
+const grid=document.getElementById("result-grid"),count=document.getElementById("result-count"),empty=document.getElementById("empty-state");
+const pageSize=document.getElementById("page-size"),prev=document.getElementById("prev-page"),next=document.getElementById("next-page"),pageInfo=document.getElementById("page-info"),pageNumbers=document.getElementById("page-numbers"),loadMore=document.getElementById("load-more");
+let currentPage=1,visibleLimit=0,filtered=[];
+const mobile=()=>window.matchMedia("(max-width: 600px)").matches;
+const unique=key=>[...new Set(opportunityPatterns.map(x=>x[key]))].sort((a,b)=>a.localeCompare(b));
+function populate(select,values){values.forEach(value=>{const option=document.createElement("option");option.value=value;option.textContent=value;select.append(option);});}
+populate(filters.type,unique("type"));populate(filters.domain,unique("domain"));populate(filters.action,unique("action"));
+function matches(item){
+ const q=searchInput.value.trim().toLowerCase();
+ const text=[item.title,item.type,item.typeId,item.domain,item.action,item.delivery,item.availability,item.relationship,item.description,item.skills,item.resources,item.tags,item.pattern].join(" ").toLowerCase();
+ return (!q||text.includes(q))&&(!filters.type.value||item.type===filters.type.value)&&(!filters.domain.value||item.domain===filters.domain.value)&&(!filters.action.value||item.action===filters.action.value)&&(!filters.delivery.value||item.delivery===filters.delivery.value)&&(!filters.availability.value||item.availability===filters.availability.value);
 }
-searchInput.addEventListener("input",render);
-domainFilter.addEventListener("change",render);
-actionFilter.addEventListener("change",render);
-document.getElementById("clear-search").addEventListener("click",()=>{searchInput.value="";domainFilter.value="";actionFilter.value="";render();searchInput.focus();});
+function makeCard(item){
+ const card=document.createElement("article");card.className="sample-card";
+ const tags=document.createElement("div");tags.className="card-tags";
+ [item.type,item.domain].forEach(label=>{const tag=document.createElement("span");tag.className="tag";tag.textContent=label;tags.append(tag);});
+ const title=document.createElement("h3");title.textContent=item.title;
+ const desc=document.createElement("p");desc.textContent=item.description;
+ const status=document.createElement("div");status.className="status-row";
+ const badge=document.createElement("span");badge.className="status-pill status-unknown";badge.textContent="Availability: "+item.availability;
+ const rel=document.createElement("span");rel.textContent=item.relationship+" · "+item.delivery;
+ status.append(badge,rel);
+ const meta=document.createElement("div");meta.className="meta";meta.textContent="Type ID: "+item.typeId;
+ const skills=document.createElement("p");skills.className="skills-line";skills.textContent="Skills: "+item.skills;
+ const note=document.createElement("p");note.className="illustrative-note";note.textContent="Illustrative pattern · not a verified live listing";
+ card.append(tags,title,desc,status,meta,skills,note);return card;
+}
+function render(){
+ filtered=opportunityPatterns.filter(matches);const size=Number(pageSize.value);
+ const totalPages=Math.max(1,Math.ceil(filtered.length/size));currentPage=Math.min(currentPage,totalPages);
+ const start=(currentPage-1)*size;const end=mobile()?Math.min(start+size,visibleLimit||size):start+size;
+ grid.replaceChildren();filtered.slice(start,end).forEach(item=>grid.append(makeCard(item)));
+ count.textContent=filtered.length+" illustrative pattern"+(filtered.length===1?"":"s")+" · "+(filtered.length?("showing "+(start+1)+"–"+Math.min(end,filtered.length)):"none")+" of "+filtered.length;
+ empty.hidden=filtered.length!==0;
+ pageInfo.textContent="Page "+currentPage+" of "+totalPages;
+ prev.disabled=currentPage<=1;next.disabled=currentPage>=totalPages;
+ pageNumbers.replaceChildren();
+ if(!mobile()) for(let p=1;p<=totalPages;p++){if(totalPages>7&&p>2&&p<totalPages-1&&Math.abs(p-currentPage)>1){if(p===3||p===totalPages-2){const dots=document.createElement("span");dots.textContent="…";pageNumbers.append(dots);}continue;}const b=document.createElement("button");b.type="button";b.textContent=p;b.setAttribute("aria-label","Page "+p);b.setAttribute("aria-current",p===currentPage?"page":"false");b.disabled=p===currentPage;b.addEventListener("click",()=>{currentPage=p;render();});pageNumbers.append(b);}
+ loadMore.hidden=!mobile()||end>=filtered.length;prev.hidden=mobile();next.hidden=mobile();pageInfo.hidden=mobile();pageNumbers.hidden=mobile();
+}
+function reset(){searchInput.value="";Object.values(filters).forEach(x=>x.value="");currentPage=1;visibleLimit=0;render();searchInput.focus();}
+searchInput.addEventListener("input",()=>{currentPage=1;visibleLimit=0;render();});
+Object.values(filters).forEach(select=>select.addEventListener("change",()=>{currentPage=1;visibleLimit=0;render();}));
+pageSize.addEventListener("change",()=>{currentPage=1;visibleLimit=0;render();});
+document.getElementById("clear-search").addEventListener("click",reset);
+prev.addEventListener("click",()=>{if(currentPage>1){currentPage--;render();}});
+next.addEventListener("click",()=>{if(currentPage<Math.ceil(filtered.length/Number(pageSize.value))){currentPage++;render();}});
+loadMore.addEventListener("click",()=>{visibleLimit=(visibleLimit||Number(pageSize.value))+Number(pageSize.value);render();});
+window.addEventListener("resize",()=>render());
 render();
