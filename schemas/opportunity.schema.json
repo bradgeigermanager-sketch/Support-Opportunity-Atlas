@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bradgeigermanager-sketch.github.io/Support-Opportunity-Atlas/schemas/opportunity.schema.json",
+  "title": "Opportunity Atlas Opportunity Record",
+  "description": "Versioned opportunity record. Evidence status and operational status are intentionally separate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "record_type", "schema_version", "version", "title", "summary", "operational_status", "need_references", "actions", "provenance", "created_at", "updated_at"],
+  "properties": {
+    "record_id": {"type": "string", "format": "uuid"},
+    "record_type": {"const": "opportunity"},
+    "schema_version": {"type": "string"},
+    "version": {"type": "integer", "minimum": 1},
+    "supersedes_version": {"type": ["integer", "null"], "minimum": 1},
+    "title": {"type": "string", "minLength": 3, "maxLength": 180},
+    "summary": {"type": "string", "maxLength": 2000},
+    "cause_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "problem_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "need_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["need_id", "evidence_state"],
+        "properties": {
+          "need_id": {"type": "string"},
+          "evidence_state": {"enum": ["candidate", "reported", "under_review", "corroborated", "verified", "disputed", "stale", "closed"]},
+          "qualification": {"type": "string"}
+        }
+      }
+    },
+    "operational_status": {"enum": ["draft", "submitted", "under_review", "published", "paused", "filled", "completed", "expired", "withdrawn", "rejected"]},
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_type", "description"],
+        "properties": {
+          "action_type": {"type": "string"},
+          "description": {"type": "string"},
+          "required_skill_ids": {"type": "array", "items": {"type": "string"}},
+          "preferred_skill_ids": {"type": "array", "items": {"type": "string"}},
+          "required_qualification_ids": {"type": "array", "items": {"type": "string"}},
+          "resource_requirements": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "organization_references": {"type": "array", "items": {"type": "string"}},
+    "location": {
+      "type": ["object", "null"],
+      "properties": {
+        "place_id": {"type": ["string", "null"]},
+        "label": {"type": ["string", "null"]},
+        "remote_allowed": {"type": "boolean"},
+        "jurisdiction_id": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "time_commitment": {
+      "type": ["object", "null"],
+      "properties": {
+        "minimum_hours": {"type": ["number", "null"], "minimum": 0},
+        "maximum_hours": {"type": ["number", "null"], "minimum": 0},
+        "period": {"enum": ["once", "daily", "weekly", "monthly", "project", "ongoing", null]},
+        "schedule_description": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "valid_from": {"type": ["string", "null"], "format": "date-time"},
+    "valid_until": {"type": ["string", "null"], "format": "date-time"},
+    "last_confirmed_at": {"type": ["string", "null"], "format": "date-time"},
+    "review_due_at": {"type": ["string", "null"], "format": "date-time"},
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "accessed_at"],
+        "properties": {
+          "source_id": {"type": "string"},
+          "source_uri": {"type": ["string", "null"], "format": "uri"},
+          "publisher": {"type": ["string", "null"]},
+          "published_at": {"type": ["string", "null"], "format": "date-time"},
+          "accessed_at": {"type": "string", "format": "date-time"},
+          "locator": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "evidence_assessment": {
+      "type": ["object", "null"],
+      "properties": {
+        "state": {"enum": ["unassessed", "low", "moderate", "high", "contested", null]},
+        "method": {"type": ["string", "null]},
+        "rationale": {"type": ["string", "null]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "created_by": {"type": ["string", "null"]}
+  }
+}
