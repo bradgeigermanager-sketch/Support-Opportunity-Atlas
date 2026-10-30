@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opportunity Atlas</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f8;
+}
+
+header{
+    background:#1f4e79;
+    color:white;
+    padding:20px;
+}
+
+header h1{
+    margin:0;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:300px;
+    background:white;
+    padding:20px;
+    border-right:1px solid #ddd;
+}
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+input,
+select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    box-sizing:border-box;
+}
+
+button{
+    background:#0078d4;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    cursor:pointer;
+    border-radius:4px;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+.card{
+    background:white;
+    margin-bottom:16px;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tag{
+    display:inline-block;
+    padding:4px 8px;
+    margin-right:5px;
+    margin-top:5px;
+    border-radius:20px;
+    background:#e8f1ff;
+    color:#1f4e79;
+    font-size:12px;
+}
+
+.score{
+    float:right;
+    background:#28a745;
+    color:white;
+    padding:4px 10px;
+    border-radius:20px;
+}
+
+#resultsCount{
+    font-weight:bold;
+    margin-top:15px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌍 Opportunity Atlas</h1>
+<p>Match your skills to meaningful opportunities.</p>
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+
+<h2>Search</h2>
+
+<label>Keyword</label>
+<input
+id="search"
+type="text"
+placeholder="Search opportunities..."
+>
+
+<label>Cause</label>
+<select id="cause">
+<option value="All">All</option>
+<option value="Education">Education</option>
+<option value="Legal Aid">Legal Aid</option>
+<option value="Environment">Environment</option>
+<option value="Food Security">Food Security</option>
+<option value="Health">Health</option>
+<option value="Community Development">Community Development</option>
+</select>
+
+<label>Skill</label>
+<select id="skill">
+<option value="All">All</option>
+<option value="Programming">Programming</option>
+<option value="Teaching">Teaching</option>
+<option value="Writing">Writing</option>
+<option value="Research">Research</option>
+<option value="Law">Law</option>
+<option value="Data Analysis">Data Analysis</option>
+</select>
+
+<label>Contribution Type</label>
+<select id="contribution">
+<option value="All">All</option>
+<option value="Volunteer">Volunteer</option>
+<option value="Mentor">Mentor</option>
+<option value="Research">Research</option>
+<option value="Build">Build</option>
+<option value="Advocate">Advocate</option>
+</select>
+
+<button onclick="resetFilters()">Reset Filters</button>
+
+<p id="resultsCount"></p>
+
+</div>
+
+<div class="main">
+
+<div class="card"
+data-title="Math Education Mentor"
+data-cause="Education"
+data-skills="Teaching Mathematics"
+data-contribution="Volunteer Mentor">
+
+<span class="score">95% Match</span>
+
+<h2>Math Education Mentor</h2>
+
+<p>
+Help students improve mathematical understanding through tutoring and mentoring.
+</p>
+
+<div class="tag">Education</div>
+<div class="tag">Teaching</div>
+<div class="tag">Mentor</div>
+
+</div>
+
+
+<div class="card"
+data-title="Legal Rights Portal"
+data-cause="Legal Aid"
+data-skills="Programming Writing"
+data-contribution="Build Research">
+
+<span class="score">92% Match</span>
+
+<h2>Legal Rights Portal</h2>
+
+<p>
+Build public legal education tools and improve access to justice information.
+</p>
+
+<div class="tag">Legal Aid</div>
+<div class="tag">Programming</div>
+<div class="tag">Writing</div>
+
+</div>
+
+
+<div class="card"
+data-title="Climate Mapping Project"
+data-cause="Environment"
+data-skills="Programming Research Data Analysis"
+data-contribution="Research Build">
+
+<span class="score">89% Match</span>
+
+<h2>Climate Mapping Project</h2>
+
+<p>
+Map environmental risks and support community resilience planning.
+</p>
+
+<div class="tag">Environment</div>
+<div class="tag">Research</div>
+<div class="tag">Data Analysis</div>
+
+</div>
+
+
+<div class="card"
+data-title="Community Literacy Tutor"
+data-cause="Education"
+data-skills="Teaching Writing"
+data-contribution="Volunteer Mentor">
+
+<span class="score">90% Match</span>
+
+<h2>Community Literacy Tutor</h2>
+
+<p>
+Help adults improve reading and writing skills.
+</p>
+
+<div class="tag">Education</div>
+<div class="tag">Writing</div>
+
+</div>
+
+
+<div class="card"
+data-title="Food Bank Data Analyst"
+data-cause="Food Security"
+data-skills="Data Analysis Programming Research"
+data-contribution="Volunteer Research">
+
+<span class="score">87% Match</span>
+
+<h2>Food Bank Data Analyst</h2>
+
+<p>
+Analyze food bank usage trends and improve distribution planning.
+</p>
+
+<div class="tag">Food Security</div>
+<div class="tag">Data Analysis</div>
+
+</div>
+
+
+<div class="card"
+data-title="Health Research Assistant"
+data-cause="Health"
+data-skills="Research Data Analysis"
+data-contribution="Research Volunteer">
+
+<span class="score">85% Match</span>
+
+<h2>Health Research Assistant</h2>
+
+<p>
+Support public-health research and program evaluation.
+</p>
+
+<div class="tag">Health</div>
+<div class="tag">Research</div>
+
+</div>
+
+
+<div class="card"
+data-title="Community Organizer"
+data-cause="Community Development"
+data-skills="Writing Teaching"
+data-contribution="Advocate Volunteer">
+
+<span class="score">88% Match</span>
+
+<h2>Community Organizer</h2>
+
+<p>
+Coordinate volunteers and improve local community programs.
+</p>
+
+<div class="tag">Community Development</div>
+<div class="tag">Advocate</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const opportunities =
+document.querySelectorAll(".card");
+
+const searchInput =
+document.getElementById("search");
+
+const causeFilter =
+document.getElementById("cause");
+
+const skillFilter =
+document.getElementById("skill");
+
+const contributionFilter =
+document.getElementById("contribution");
+
+function filterOpportunities(){
+
+    const search =
+    searchInput.value.toLowerCase();
+
+    const cause =
+    causeFilter.value;
+
+    const skill =
+    skillFilter.value;
+
+    const contribution =
+    contributionFilter.value;
+
+    let visibleCount = 0;
+
+    opportunities.forEach(card => {
+
+        const title =
+        card.dataset.title.toLowerCase();
+
+        const causeValue =
+        card.dataset.cause;
+
+        const skills =
+        card.dataset.skills;
+
+        const contributionValue =
+        card.dataset.contribution;
+
+        const searchMatch =
+        title.includes(search) ||
+        causeValue.toLowerCase().includes(search) ||
+        skills.toLowerCase().includes(search);
+
+        const causeMatch =
+        cause === "All" ||
+        causeValue === cause;
+
+        const skillMatch =
+        skill === "All" ||
+        skills.includes(skill);
+
+        const contributionMatch =
+        contribution === "All" ||
+        contributionValue.includes(contribution);
+
+        if(
+            searchMatch &&
+            causeMatch &&
+            skillMatch &&
+            contributionMatch
+        ){
+            card.style.display = "block";
+            visibleCount++;
+        }
+        else{
+            card.style.display = "none";
+        }
+
+    });
+
+    document.getElementById(
+        "resultsCount"
+    ).innerHTML =
+    visibleCount +
+    " opportunity(s) found";
+
+}
+
+function resetFilters(){
+
+    searchInput.value="";
+
+    causeFilter.value="All";
+
+    skillFilter.value="All";
+
+    contributionFilter.value="All";
+
+    filterOpportunities();
+
+}
+
+searchInput.addEventListener(
+    "input",
+    filterOpportunities
+);
+
+causeFilter.addEventListener(
+    "change",
+    filterOpportunities
+);
+
+skillFilter.addEventListener(
+    "change",
+    filterOpportunities
+);
+
+contributionFilter.addEventListener(
+    "change",
+    filterOpportunities
+);
+
+filterOpportunities();
+
+</script>
+
+</body>
+</html>
